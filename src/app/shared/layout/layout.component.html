@@ -1,0 +1,38 @@
+<mat-drawer-container class="layout-container" autosize>
+    <!-- Sidebar -->
+    <mat-drawer #drawer mode="side">
+        <mat-nav-list>
+            
+            <a mat-list-item routerLink="/home" (click)="drawer.close()">Home</a>
+            <a mat-list-item routerLink="/dashboard" (click)="drawer.close()">Dashboard</a>
+            <a mat-list-item routerLink="/users" (click)="drawer.close()">Users</a>
+            <a mat-list-item routerLink="/roles" (click)="drawer.close()">Roles</a>
+            <a mat-list-item routerLink="/permissions" (click)="drawer.close()">Permissions</a>
+            <a mat-list-item routerLink="/settings" (click)="drawer.close()">Settings</a>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <!-- Main content (Navbar and page content) -->
+    <mat-drawer-content>
+        <!-- Navbar -->
+        <mat-toolbar>
+            <button mat-icon-button class="white-button" (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="spacer"></span>
+            <button mat-icon-button class="white-button">
+                <mat-icon>
+                    notifications
+                </mat-icon>
+            </button>
+            <button mat-icon-button class="white-button">
+                <mat-icon>person</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <!-- Page content -->
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

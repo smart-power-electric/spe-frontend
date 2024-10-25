@@ -1,0 +1,24 @@
+
+.layout-container {
+  height: 100vh;
+}
+
+.mat-toolbar {
+  position:relative;
+  z-index: 1000;
+  background-color: #005cbb;
+}
+
+.content {
+  padding: 20px;
+  margin-top: 64px;
+}
+
+.white-button {
+  background-color: #005cbb;
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
