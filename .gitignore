@@ -5,3 +5,5 @@
 /.vs/spe-frontend
 /obj
 /bin
+/web-app/bin/Debug/net8.0
+/web-app/obj
