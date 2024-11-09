@@ -1,0 +1,24 @@
+<MudPaper Class="pa-4 ma-1" Elevation="3">
+    <MudGrid Spacing="0" Justify="Justify.SpaceBetween">
+        <MudItem>
+            <MudGrid Spacing="1">
+                <MudItem>
+                    <MudText Typo="Typo.h5" Align="Align.Left">@Title</MudText>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+        <MudItem>
+            <MudGrid Spacing="1">
+                <MudItem>
+                    <MudTooltip Text="@($"Add {Title}")">
+                        <MudIconButton Icon="@Icons.Material.Filled.Add" Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small" hidden="@HiddenAddButton" OnClick="@(() => AddButtonAction.Invoke())" />
+                    </MudTooltip>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+
+<MudPaper Class="pa-4 ma-1" Elevation="1">
+    @ChildContent
+</MudPaper>

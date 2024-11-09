@@ -11,3 +11,4 @@ node_modules
 .angular
 
 .fake
+.DS_Store
