@@ -7,3 +7,8 @@
 /bin
 /web-app/bin/Debug/net8.0
 /web-app/obj
+node_modules
+.angular
+
+.fake
+.DS_Store
