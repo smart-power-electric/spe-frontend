@@ -1,0 +1,22 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudForm ValidationDelay="0">
+            <MudGrid Spacing="2">
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudTextField T="string" Immediate="true"
+                                  Variant="Variant.Outlined"
+                                  Label="Name" />
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudNumericField HideSpinButtons="true" T="string"
+                                  Variant="Variant.Outlined"
+                                  Label="Costo" />
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+    </DialogActions>
+</MudDialog>

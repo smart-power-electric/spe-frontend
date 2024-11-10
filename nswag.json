@@ -1,0 +1,20 @@
+{
+  "runtime": "Net80",
+  "documentGenerator": {
+    "fromDocument": {
+      "url": "https://xsco00c800kwc80480ckccco.cubantechsolutions.tech/v1/api-json"
+    }
+  },
+  "codeGenerators": {
+    "openApiToCSharpClient": {
+      "className": "ApiClient",
+      "generateClientInterfaces": true,
+      "injectHttpClient": true,
+      "disposeHttpClient": true,
+      "namespace": "web_app.ApiClient",
+      "useBaseUrl": true,
+      "generateBaseUrlProperty": true,
+      "output": "./Generated/ApiClient.cs"
+    }
+  }
+}

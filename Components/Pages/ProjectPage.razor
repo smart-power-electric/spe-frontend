@@ -1,0 +1,13 @@
+@page "/project"
+
+<web_app.Components.Layout.ContentPage Title="Clientes" HiddenAddButton="false" AddButtonAction="AddClient">
+
+    <MudDataGrid T="string" Filterable="true" FilterMode="DataGridFilterMode.Simple" FilterCaseSensitivity="@DataGridFilterCaseSensitivity.CaseInsensitive">
+        <Columns>
+            @* <PropertyColumn Title="Nr" Filterable="false" /> *@
+        </Columns>
+        <PagerContent>
+            <MudDataGridPager />
+        </PagerContent>
+    </MudDataGrid>
+</web_app.Components.Layout.ContentPage>

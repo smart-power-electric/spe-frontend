@@ -1,5 +1,9 @@
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using MudBlazor.Services;
+using web_app.ApiClient;
 using web_app.Components;
+using web_app.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +13,11 @@ builder.Services.AddMudServices();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Create http client
+var apiSettings = builder.Configuration.GetSection("ApiSettings").Get<ApiSettings>();
+builder.Services.AddScoped<IApiClient>(_ => new ApiClient(apiSettings!.BaseUrl, new HttpClient()));
+
 
 var app = builder.Build();
 

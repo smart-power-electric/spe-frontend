@@ -1,0 +1,14 @@
+@page "/workers"
+@using web_app.ApiClient
+
+<web_app.Components.Layout.ContentPage Title="Trabajadores" HiddenAddButton="false" AddButtonAction="AddWorker">
+
+    <MudDataGrid Items="Workers" Filterable="true" FilterMode="DataGridFilterMode.Simple" FilterCaseSensitivity="@DataGridFilterCaseSensitivity.CaseInsensitive">
+        <Columns>
+            <PropertyColumn Property="x => x.Name" Title="Name" Filterable="false" />
+        </Columns>
+        <PagerContent>
+            <MudDataGridPager T="WorkerResponse"/>
+        </PagerContent>
+    </MudDataGrid>
+</web_app.Components.Layout.ContentPage>

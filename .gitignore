@@ -12,3 +12,5 @@ node_modules
 
 .fake
 .DS_Store
+/.vs
+/appsettings.Development.json

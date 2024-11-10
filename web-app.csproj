@@ -6,10 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>web_app</RootNamespace>
     <AssemblyName>`$(AssemblyName.Replace(' ', '_'))</AssemblyName>
+    <UserSecretsId>2b03241d-b1fc-48e2-9c6c-18044be61a07</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="MudBlazor" Version="7.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="14.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>
