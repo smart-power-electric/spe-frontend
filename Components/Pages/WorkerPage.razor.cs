@@ -170,6 +170,6 @@ public partial class WorkerPage
         return dataGrid.ReloadServerData();
     }
 
-    private string ChangeDateFormat(DateTimeOffset? value) => DateTime.TryParse(value.ToString(), out var date) ? date.ToString("MM/dd/yyyy") : "";
+    private string ChangeDateFormat(DateTime? value) => DateTime.TryParse(value.ToString(), out var date) ? date.ToString("MM/dd/yyyy") : "";
     #endregion
 }

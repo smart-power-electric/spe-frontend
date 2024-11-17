@@ -1,6 +1,6 @@
 ﻿@using System.Linq.Expressions
 @inherits MudDatePicker
-<MudDatePicker For="@(() => InternalDate)" PickerVariant="PickerVariant.Dialog" @bind-Date="InternalDate" Variant="Variant" Label="@NewLabel" Disabled="Disabled" />
+<MudDatePicker PickerVariant="PickerVariant.Dialog" @bind-Date="InternalDate" Variant="Variant" Label="@NewLabel" Disabled="Disabled" />
 
 @code {
     [Parameter]
@@ -9,8 +9,53 @@
     [Parameter]
     public EventCallback<DateTimeOffset?> ValueChanged { get; set; }
     [Parameter] public string? NewLabel { get; set; }
+    [Parameter]
+    public Expression<Func<DateTimeOffset?>>? ForOffset { get; set; }
 
-    
+    protected override void OnParametersSet()
+    {
+        if (ForOffset != null)
+        {
+            // Convierte la expresión de DateTimeOffset? a DateTime?
+            For = ConvertExpression(ForOffset);
+        }
+        base.OnParametersSet();
+    }
+
+    // Convierte una expresión de DateTimeOffset? a DateTime?
+    private Expression<Func<DateTime?>>? ConvertExpression(Expression<Func<DateTimeOffset?>>? originalExpression)
+    {
+
+        if (originalExpression == null) {
+            return null;
+        }
+
+        // Verifica si la expresión es válida
+        if (originalExpression.Body is not MemberExpression memberExpression)
+        {
+            return null;
+        }
+
+        // Crea una nueva expresión que maneje DateTimeOffset? -> DateTime?
+        if (originalExpression.Parameters.Count == 0) {
+            return null;
+        }
+        var parameter = originalExpression.Parameters[0];
+        var valueProperty = Expression.Property(memberExpression, nameof(Nullable<DateTimeOffset>.Value));
+        var dateTimeProperty = Expression.Property(valueProperty, nameof(DateTimeOffset.DateTime));
+
+        var hasValue = Expression.Property(memberExpression, nameof(Nullable<DateTimeOffset>.HasValue));
+        var condition = Expression.Condition(
+            hasValue,
+            Expression.Convert(dateTimeProperty, typeof(DateTime?)),
+            Expression.Constant(null, typeof(DateTime?))
+        );
+
+        // Devuelve la nueva expresión
+        return Expression.Lambda<Func<DateTime?>>(condition, parameter);
+    }
+
+
     private DateTime? InternalDate
     {
         get => Value?.DateTime;

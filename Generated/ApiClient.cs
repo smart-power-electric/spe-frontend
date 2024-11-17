@@ -1239,7 +1239,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ClientResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -1785,7 +1785,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<InvoicesResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -2327,7 +2327,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<MaterialResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -2869,7 +2869,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<NotificationsResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -3415,7 +3415,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ProjectResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -3957,7 +3957,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ProjectQuotationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -4507,7 +4507,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ServiceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -5049,7 +5049,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ServiceSheetsResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -5595,7 +5595,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<StageResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -6141,7 +6141,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<UserResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -6686,11 +6686,6 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
-                        {
-                            return;
-                        }
-                        else
                         if (status_ == 400)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
@@ -6709,11 +6704,6 @@ namespace web_app.ApiClient
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
                             throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -7556,7 +7546,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<WorkerResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -8098,7 +8088,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<WorkerAssignmentResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -8648,7 +8638,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<WorkerPaymentsResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -9194,7 +9184,7 @@ namespace web_app.ApiClient
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 201)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<WorkerRatesResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -10175,12 +10165,6 @@ namespace web_app.ApiClient
         public string StageId { get; set; }
 
         /// <summary>
-        /// Invoice number of invoices
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("invoiceNumber", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string InvoiceNumber { get; set; }
-
-        /// <summary>
         /// Date of invoices
         /// </summary>
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.AllowNull)]
@@ -10893,13 +10877,13 @@ namespace web_app.ApiClient
         /// Created at of the projectQuotation
         /// </summary>
         [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? CreatedAt { get; set; }
+        public System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
         /// Updated at of the projectQuotation
         /// </summary>
         [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? UpdatedAt { get; set; }
+        public System.DateTime? UpdatedAt { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -11322,13 +11306,13 @@ namespace web_app.ApiClient
         /// Start date of the stage
         /// </summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? StartDate { get; set; }
+        public System.DateTime? StartDate { get; set; }
 
         /// <summary>
         /// End date of the stage
         /// </summary>
         [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? EndDate { get; set; }
+        public System.DateTime? EndDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -11385,7 +11369,7 @@ namespace web_app.ApiClient
         /// Start date of the stage
         /// </summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? StartDate { get; set; }
+        public System.DateTime? StartDate { get; set; }
 
         /// <summary>
         /// End date of the stage
@@ -11480,13 +11464,13 @@ namespace web_app.ApiClient
         /// Start date of the stage
         /// </summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? StartDate { get; set; }
+        public System.DateTime? StartDate { get; set; }
 
         /// <summary>
         /// End date of the stage
         /// </summary>
         [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? EndDate { get; set; }
+        public System.DateTime? EndDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -12019,13 +12003,13 @@ namespace web_app.ApiClient
         /// Start date contract of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? StartDate { get; set; }
+        public System.DateTime? StartDate { get; set; }
 
         /// <summary>
         /// End date contract of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? EndDate { get; set; }
+        public System.DateTime? EndDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -12088,13 +12072,13 @@ namespace web_app.ApiClient
         /// State of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? StartDate { get; set; }
+        public System.DateTime? StartDate { get; set; }
 
         /// <summary>
         /// Zip of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? EndDate { get; set; }
+        public System.DateTime? EndDate { get; set; }
 
         /// <summary>
         /// Created at of the worker
@@ -12189,13 +12173,13 @@ namespace web_app.ApiClient
         /// State of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? StartDate { get; set; }
+        public System.DateTime? StartDate { get; set; }
 
         /// <summary>
         /// Zip of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? EndDate { get; set; }
+        public System.DateTime? EndDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -12375,7 +12359,7 @@ namespace web_app.ApiClient
         /// Email of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("paymentDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? PaymentDate { get; set; }
+        public System.DateTime? PaymentDate { get; set; }
 
         /// <summary>
         /// Is extra of the workerPayments
@@ -12426,7 +12410,7 @@ namespace web_app.ApiClient
         /// Email of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("paymentDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? PaymentDate { get; set; }
+        public System.DateTime? PaymentDate { get; set; }
 
         /// <summary>
         /// Is extra of the workerPayments
@@ -12438,13 +12422,13 @@ namespace web_app.ApiClient
         /// Created at of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? CreatedAt { get; set; }
+        public System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
         /// Updated at of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? UpdatedAt { get; set; }
+        public System.DateTime? UpdatedAt { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -12509,7 +12493,7 @@ namespace web_app.ApiClient
         /// Email of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("paymentDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? PaymentDate { get; set; }
+        public System.DateTime? PaymentDate { get; set; }
 
         /// <summary>
         /// Is extra of the workerPayments
@@ -12547,7 +12531,7 @@ namespace web_app.ApiClient
         /// Effective date of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("effectiveDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? EffectiveDate { get; set; }
+        public System.DateTime? EffectiveDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -12586,19 +12570,19 @@ namespace web_app.ApiClient
         /// Effective date of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("effectiveDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? EffectiveDate { get; set; }
+        public System.DateTime? EffectiveDate { get; set; }
 
         /// <summary>
         /// Created at of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? CreatedAt { get; set; }
+        public System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
         /// Updated at of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? UpdatedAt { get; set; }
+        public System.DateTime? UpdatedAt { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -12657,7 +12641,7 @@ namespace web_app.ApiClient
         /// Effective date of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("effectiveDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? EffectiveDate { get; set; }
+        public System.DateTime? EffectiveDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 

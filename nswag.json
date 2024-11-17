@@ -13,6 +13,8 @@
       "disposeHttpClient": true,
       "namespace": "web_app.ApiClient",
       "useBaseUrl": true,
+      "dateTimeType": "System.DateTime",
+      "wrapDtoExceptions": true,
       "generateBaseUrlProperty": true,
       "output": "./Generated/ApiClient.cs"
     }

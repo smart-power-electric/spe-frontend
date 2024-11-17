@@ -39,7 +39,7 @@ namespace web_app.Services.Validators
 
         }
 
-        private bool BeAValidDate(DateTimeOffset? date)
+        private bool BeAValidDate(DateTime? date)
         {
             return date.HasValue && date.Value != default;
         }
