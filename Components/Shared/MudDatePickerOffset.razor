@@ -1,0 +1,27 @@
+﻿@using System.Linq.Expressions
+@inherits MudDatePicker
+<MudDatePicker For="@(() => InternalDate)" PickerVariant="PickerVariant.Dialog" @bind-Date="InternalDate" Variant="Variant" Label="@NewLabel" Disabled="Disabled" />
+
+@code {
+    [Parameter]
+    public DateTimeOffset? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<DateTimeOffset?> ValueChanged { get; set; }
+    [Parameter] public string? NewLabel { get; set; }
+
+    
+    private DateTime? InternalDate
+    {
+        get => Value?.DateTime;
+        set
+        {
+            var offset = value.HasValue ? new DateTimeOffset(value.Value, TimeSpan.Zero) : (DateTimeOffset?)null;
+            if (offset != Value)
+            {
+                Value = offset;
+                ValueChanged.InvokeAsync(offset);
+            }
+        }
+    }
+}

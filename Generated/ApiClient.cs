@@ -52,7 +52,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All clients</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ClientResponse>> FindAllClientAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<ClientPaginationResponse> FindAllClientAsync(double? limit, double? offset, string name, string email);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -60,14 +60,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All clients</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ClientResponse>> FindAllClientAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ClientPaginationResponse> FindAllClientAsync(double? limit, double? offset, string name, string email, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get client by id
         /// </summary>
         /// <returns>Client found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ClientResponse> FindOneClientAsync(double id);
+        System.Threading.Tasks.Task<ClientResponse> FindOneClientAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -75,25 +75,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Client found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ClientResponse> FindOneClientAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ClientResponse> FindOneClientAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Client updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ClientResponse> UpdateClientAsync(double id, UpdateClientRequest body);
+        System.Threading.Tasks.Task<ClientResponse> UpdateClientAsync(string id, UpdateClientRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Client updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ClientResponse> UpdateClientAsync(double id, UpdateClientRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ClientResponse> UpdateClientAsync(string id, UpdateClientRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Client deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveClientAsync(double id);
+        System.Threading.Tasks.Task RemoveClientAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Client deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveClientAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveClientAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new invoices
@@ -115,7 +115,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All invoicess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<InvoicesResponse>> FindAllInvoiceAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<InvoicesPaginationResponse> FindAllInvoiceAsync(double? limit, double? offset, string stageId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -123,14 +123,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All invoicess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<InvoicesResponse>> FindAllInvoiceAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<InvoicesPaginationResponse> FindAllInvoiceAsync(double? limit, double? offset, string stageId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get invoices by id
         /// </summary>
         /// <returns>Invoices found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<InvoicesResponse> FindOneInvoiceAsync(double id);
+        System.Threading.Tasks.Task<InvoicesResponse> FindOneInvoiceAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -138,25 +138,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Invoices found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<InvoicesResponse> FindOneInvoiceAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<InvoicesResponse> FindOneInvoiceAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Invoices updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<InvoicesResponse> UpdateInvoiceAsync(double id, UpdateInvoicesRequest body);
+        System.Threading.Tasks.Task<InvoicesResponse> UpdateInvoiceAsync(string id, UpdateInvoicesRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Invoices updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<InvoicesResponse> UpdateInvoiceAsync(double id, UpdateInvoicesRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<InvoicesResponse> UpdateInvoiceAsync(string id, UpdateInvoicesRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Invoices deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveInvoiceAsync(double id);
+        System.Threading.Tasks.Task RemoveInvoiceAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Invoices deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveInvoiceAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveInvoiceAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new material
@@ -178,7 +178,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All materials</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<MaterialResponse>> FindAllMaterialAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<MaterialPaginationResponse> FindAllMaterialAsync(double? limit, double? offset, string name);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -186,14 +186,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All materials</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<MaterialResponse>> FindAllMaterialAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<MaterialPaginationResponse> FindAllMaterialAsync(double? limit, double? offset, string name, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get material by id
         /// </summary>
         /// <returns>Material found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MaterialResponse> FindOneMaterialAsync(double id);
+        System.Threading.Tasks.Task<MaterialResponse> FindOneMaterialAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -201,25 +201,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Material found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MaterialResponse> FindOneMaterialAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<MaterialResponse> FindOneMaterialAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Material updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MaterialResponse> UpdateMaterialAsync(double id, UpdateMaterialRequest body);
+        System.Threading.Tasks.Task<MaterialResponse> UpdateMaterialAsync(string id, UpdateMaterialRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Material updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MaterialResponse> UpdateMaterialAsync(double id, UpdateMaterialRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<MaterialResponse> UpdateMaterialAsync(string id, UpdateMaterialRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Material deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveMaterialAsync(double id);
+        System.Threading.Tasks.Task RemoveMaterialAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Material deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveMaterialAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveMaterialAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new notifications
@@ -241,7 +241,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All notificationss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NotificationsResponse>> FindAllNotificationAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<NotificationsPaginationResponse> FindAllNotificationAsync(double? limit, double? offset, string clientId, string invoiceId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -249,14 +249,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All notificationss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NotificationsResponse>> FindAllNotificationAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<NotificationsPaginationResponse> FindAllNotificationAsync(double? limit, double? offset, string clientId, string invoiceId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get notifications by id
         /// </summary>
         /// <returns>Notifications found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<NotificationsResponse> FindOneNotificationAsync(double id);
+        System.Threading.Tasks.Task<NotificationsResponse> FindOneNotificationAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -264,25 +264,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Notifications found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<NotificationsResponse> FindOneNotificationAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<NotificationsResponse> FindOneNotificationAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Notifications updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<NotificationsResponse> UpdateNotificationAsync(double id, UpdateNotificationsRequest body);
+        System.Threading.Tasks.Task<NotificationsResponse> UpdateNotificationAsync(string id, UpdateNotificationsRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Notifications updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<NotificationsResponse> UpdateNotificationAsync(double id, UpdateNotificationsRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<NotificationsResponse> UpdateNotificationAsync(string id, UpdateNotificationsRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Notifications deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveNotificationAsync(double id);
+        System.Threading.Tasks.Task RemoveNotificationAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Notifications deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveNotificationAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveNotificationAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new project
@@ -304,7 +304,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All projects</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProjectResponse>> FindAllProjectAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<ProjectPaginationResponse> FindAllProjectAsync(double? limit, double? offset, string clientId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -312,14 +312,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All projects</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProjectResponse>> FindAllProjectAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ProjectPaginationResponse> FindAllProjectAsync(double? limit, double? offset, string clientId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get project by id
         /// </summary>
         /// <returns>Project found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ProjectResponse> FindOneProjectAsync(double id);
+        System.Threading.Tasks.Task<ProjectResponse> FindOneProjectAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -327,25 +327,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Project found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ProjectResponse> FindOneProjectAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ProjectResponse> FindOneProjectAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Project updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ProjectResponse> UpdateProjectAsync(double id, UpdateProjectRequest body);
+        System.Threading.Tasks.Task<ProjectResponse> UpdateProjectAsync(string id, UpdateProjectRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Project updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ProjectResponse> UpdateProjectAsync(double id, UpdateProjectRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ProjectResponse> UpdateProjectAsync(string id, UpdateProjectRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Project deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveProjectAsync(double id);
+        System.Threading.Tasks.Task RemoveProjectAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Project deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveProjectAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveProjectAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new projectQuotation
@@ -367,7 +367,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All projectQuotations</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProjectQuotationResponse>> FindAllProjectQuotationAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<ProjectQuotationPaginationResponse> FindAllProjectQuotationAsync(double? limit, double? offset, string projectId, string materialId, string serviceId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -375,14 +375,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All projectQuotations</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProjectQuotationResponse>> FindAllProjectQuotationAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ProjectQuotationPaginationResponse> FindAllProjectQuotationAsync(double? limit, double? offset, string projectId, string materialId, string serviceId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get projectQuotation by id
         /// </summary>
         /// <returns>ProjectQuotation found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ProjectQuotationResponse> FindOneProjectQuotationAsync(double id);
+        System.Threading.Tasks.Task<ProjectQuotationResponse> FindOneProjectQuotationAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -390,25 +390,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>ProjectQuotation found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ProjectQuotationResponse> FindOneProjectQuotationAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ProjectQuotationResponse> FindOneProjectQuotationAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>ProjectQuotation updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ProjectQuotationResponse> UpdateProjectQuotationAsync(double id, UpdateProjectQuotationRequest body);
+        System.Threading.Tasks.Task<ProjectQuotationResponse> UpdateProjectQuotationAsync(string id, UpdateProjectQuotationRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ProjectQuotation updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ProjectQuotationResponse> UpdateProjectQuotationAsync(double id, UpdateProjectQuotationRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ProjectQuotationResponse> UpdateProjectQuotationAsync(string id, UpdateProjectQuotationRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>ProjectQuotation deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveProjectQuotationAsync(double id);
+        System.Threading.Tasks.Task RemoveProjectQuotationAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ProjectQuotation deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveProjectQuotationAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveProjectQuotationAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new service
@@ -430,7 +430,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All services</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ServiceResponse>> FindAllServiceAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<ServicePaginationResponse> FindAllServiceAsync(double? limit, double? offset, string name);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -438,14 +438,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All services</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ServiceResponse>> FindAllServiceAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ServicePaginationResponse> FindAllServiceAsync(double? limit, double? offset, string name, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get service by id
         /// </summary>
         /// <returns>Service found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServiceResponse> FindOneServiceAsync(double id);
+        System.Threading.Tasks.Task<ServiceResponse> FindOneServiceAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -453,25 +453,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Service found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServiceResponse> FindOneServiceAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ServiceResponse> FindOneServiceAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Service updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServiceResponse> UpdateServiceAsync(double id, UpdateServiceRequest body);
+        System.Threading.Tasks.Task<ServiceResponse> UpdateServiceAsync(string id, UpdateServiceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Service updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServiceResponse> UpdateServiceAsync(double id, UpdateServiceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ServiceResponse> UpdateServiceAsync(string id, UpdateServiceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Service deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveServiceAsync(double id);
+        System.Threading.Tasks.Task RemoveServiceAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Service deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveServiceAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveServiceAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new serviceSheets
@@ -493,7 +493,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All serviceSheetss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ServiceSheetsResponse>> FindAllServiceSheetsAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<ServiceSheetsPaginationResponse> FindAllServiceSheetsAsync(double? limit, double? offset, string workerId, string projectId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -501,14 +501,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All serviceSheetss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ServiceSheetsResponse>> FindAllServiceSheetsAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ServiceSheetsPaginationResponse> FindAllServiceSheetsAsync(double? limit, double? offset, string workerId, string projectId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get serviceSheets by id
         /// </summary>
         /// <returns>ServiceSheets found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServiceSheetsResponse> FindOneServiceSheetsAsync(double id);
+        System.Threading.Tasks.Task<ServiceSheetsResponse> FindOneServiceSheetsAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -516,25 +516,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>ServiceSheets found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServiceSheetsResponse> FindOneServiceSheetsAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ServiceSheetsResponse> FindOneServiceSheetsAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>ServiceSheets updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServiceSheetsResponse> UpdateServiceSheetsAsync(double id, UpdateServiceSheetsRequest body);
+        System.Threading.Tasks.Task<ServiceSheetsResponse> UpdateServiceSheetsAsync(string id, UpdateServiceSheetsRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ServiceSheets updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServiceSheetsResponse> UpdateServiceSheetsAsync(double id, UpdateServiceSheetsRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ServiceSheetsResponse> UpdateServiceSheetsAsync(string id, UpdateServiceSheetsRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>ServiceSheets deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveServiceSheetsAsync(double id);
+        System.Threading.Tasks.Task RemoveServiceSheetsAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ServiceSheets deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveServiceSheetsAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveServiceSheetsAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new stage
@@ -556,7 +556,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All stages</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<StageResponse>> FindAllStageAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<StagePaginationResponse> FindAllStageAsync(double? limit, double? offset, string projectId, string name);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -564,14 +564,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All stages</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<StageResponse>> FindAllStageAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<StagePaginationResponse> FindAllStageAsync(double? limit, double? offset, string projectId, string name, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get stage by id
         /// </summary>
         /// <returns>Stage found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<StageResponse> FindOneStageAsync(double id);
+        System.Threading.Tasks.Task<StageResponse> FindOneStageAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -579,25 +579,208 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Stage found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<StageResponse> FindOneStageAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<StageResponse> FindOneStageAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Stage updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<StageResponse> UpdateStageAsync(double id, UpdateStageRequest body);
+        System.Threading.Tasks.Task<StageResponse> UpdateStageAsync(string id, UpdateStageRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Stage updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<StageResponse> UpdateStageAsync(double id, UpdateStageRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<StageResponse> UpdateStageAsync(string id, UpdateStageRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Stage deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveStageAsync(double id);
+        System.Threading.Tasks.Task RemoveStageAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Stage deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveStageAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveStageAsync(string id, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Create a new user
+        /// </summary>
+        /// <returns>User created</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserResponse> CreateUserAsync(CreateUserRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create a new user
+        /// </summary>
+        /// <returns>User created</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserResponse> CreateUserAsync(CreateUserRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get all users
+        /// </summary>
+        /// <returns>All users</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserPaginationResponse> FindAllUserAsync(double? limit, double? offset, string search);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all users
+        /// </summary>
+        /// <returns>All users</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserPaginationResponse> FindAllUserAsync(double? limit, double? offset, string search, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get user roles
+        /// </summary>
+        /// <returns>User roles</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RoleResponse>> FindUserRolesAsync(string id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get user roles
+        /// </summary>
+        /// <returns>User roles</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RoleResponse>> FindUserRolesAsync(string id, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <returns>User found</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserResponse> FindOneUserAsync(string id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <returns>User found</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserResponse> FindOneUserAsync(string id, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>User updated</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserResponse> UpdateUserAsync(string id, UpdateUserRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>User updated</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserResponse> UpdateUserAsync(string id, UpdateUserRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>User deleted</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task RemoveUserAsync(string id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>User deleted</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task RemoveUserAsync(string id, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Login user
+        /// </summary>
+        /// <returns>User logged</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<LoginResponse> LoginUserAsync(LoginRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Login user
+        /// </summary>
+        /// <returns>User logged</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<LoginResponse> LoginUserAsync(LoginRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Logout user
+        /// </summary>
+        /// <returns>User logged out</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task LogoutUserAsync(string refreshToken);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Logout user
+        /// </summary>
+        /// <returns>User logged out</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task LogoutUserAsync(string refreshToken, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Refresh user token
+        /// </summary>
+        /// <returns>User refreshed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<LoginResponse> RefreshUserAsync(string refreshToken);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Refresh user token
+        /// </summary>
+        /// <returns>User refreshed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<LoginResponse> RefreshUserAsync(string refreshToken, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Change user password
+        /// </summary>
+        /// <returns>Password changed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserResponse> ChangePasswordAsync(ChangePasswordRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Change user password
+        /// </summary>
+        /// <returns>Password changed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<UserResponse> ChangePasswordAsync(ChangePasswordRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Assign role to user
+        /// </summary>
+        /// <returns>Role assigned</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AssignRoleResponse> AssignRoleToUserAsync(AssignRoleToUserRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Assign role to user
+        /// </summary>
+        /// <returns>Role assigned</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AssignRoleResponse> AssignRoleToUserAsync(AssignRoleToUserRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Remove role from user
+        /// </summary>
+        /// <returns>Role removed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<RemoveRoleFromUserRequest> RemoveRoleFromUserAsync(RemoveRoleFromUserRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Remove role from user
+        /// </summary>
+        /// <returns>Role removed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<RemoveRoleFromUserRequest> RemoveRoleFromUserAsync(RemoveRoleFromUserRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get all roles
+        /// </summary>
+        /// <returns>Roles retrieved</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RoleResponse>> GetRolesAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all roles
+        /// </summary>
+        /// <returns>Roles retrieved</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RoleResponse>> GetRolesAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new worker
@@ -619,7 +802,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workers</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerResponse>> FindAllWorkerAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<WorkerPaginationResponse> FindAllWorkerAsync(double? limit, double? offset, string name);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -627,14 +810,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workers</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerResponse>> FindAllWorkerAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerPaginationResponse> FindAllWorkerAsync(double? limit, double? offset, string name, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get worker by id
         /// </summary>
         /// <returns>Worker found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerResponse> FindOneWorkerAsync(double id);
+        System.Threading.Tasks.Task<WorkerResponse> FindOneWorkerAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -642,25 +825,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Worker found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerResponse> FindOneWorkerAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerResponse> FindOneWorkerAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Worker updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerResponse> UpdateWorkerAsync(double id, UpdateWorkerRequest body);
+        System.Threading.Tasks.Task<WorkerResponse> UpdateWorkerAsync(string id, UpdateWorkerRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Worker updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerResponse> UpdateWorkerAsync(double id, UpdateWorkerRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerResponse> UpdateWorkerAsync(string id, UpdateWorkerRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Worker deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveWorkerAsync(double id);
+        System.Threading.Tasks.Task RemoveWorkerAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Worker deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveWorkerAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveWorkerAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new workerAssignment
@@ -682,7 +865,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerAssignments</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerAssignmentResponse>> FindAllWorkerAssignmentAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<WorkerAssignmentPaginationResponse> FindAllWorkerAssignmentAsync(double? limit, double? offset, string workerId, string projectId, string stageId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -690,14 +873,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerAssignments</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerAssignmentResponse>> FindAllWorkerAssignmentAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerAssignmentPaginationResponse> FindAllWorkerAssignmentAsync(double? limit, double? offset, string workerId, string projectId, string stageId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get workerAssignment by id
         /// </summary>
         /// <returns>WorkerAssignment found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerAssignmentResponse> FindOneWorkerAssignmentAsync(double id);
+        System.Threading.Tasks.Task<WorkerAssignmentResponse> FindOneWorkerAssignmentAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -705,25 +888,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerAssignment found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerAssignmentResponse> FindOneWorkerAssignmentAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerAssignmentResponse> FindOneWorkerAssignmentAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>WorkerAssignment updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerAssignmentResponse> UpdateWorkerAssignmentAsync(double id, UpdateWorkerAssignmentRequest body);
+        System.Threading.Tasks.Task<WorkerAssignmentResponse> UpdateWorkerAssignmentAsync(string id, UpdateWorkerAssignmentRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerAssignment updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerAssignmentResponse> UpdateWorkerAssignmentAsync(double id, UpdateWorkerAssignmentRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerAssignmentResponse> UpdateWorkerAssignmentAsync(string id, UpdateWorkerAssignmentRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>WorkerAssignment deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveWorkerAssignmentAsync(double id);
+        System.Threading.Tasks.Task RemoveWorkerAssignmentAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerAssignment deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveWorkerAssignmentAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveWorkerAssignmentAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new workerPayments
@@ -745,7 +928,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerPaymentss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerPaymentsResponse>> FindAllWorkerPaymentsAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<WorkerPaymentsPaginationResponse> FindAllWorkerPaymentsAsync(double? limit, double? offset, string workerId, string serviceSheetId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -753,14 +936,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerPaymentss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerPaymentsResponse>> FindAllWorkerPaymentsAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerPaymentsPaginationResponse> FindAllWorkerPaymentsAsync(double? limit, double? offset, string workerId, string serviceSheetId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get workerPayments by id
         /// </summary>
         /// <returns>WorkerPayments found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerPaymentsResponse> FindOneWorkerPaymentsAsync(double id);
+        System.Threading.Tasks.Task<WorkerPaymentsResponse> FindOneWorkerPaymentsAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -768,25 +951,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerPayments found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerPaymentsResponse> FindOneWorkerPaymentsAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerPaymentsResponse> FindOneWorkerPaymentsAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>WorkerPayments updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerPaymentsResponse> UpdateWorkerPaymentsAsync(double id, UpdateWorkerPaymentsRequest body);
+        System.Threading.Tasks.Task<WorkerPaymentsResponse> UpdateWorkerPaymentsAsync(string id, UpdateWorkerPaymentsRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerPayments updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerPaymentsResponse> UpdateWorkerPaymentsAsync(double id, UpdateWorkerPaymentsRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerPaymentsResponse> UpdateWorkerPaymentsAsync(string id, UpdateWorkerPaymentsRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>WorkerPayments deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveWorkerPaymentsAsync(double id);
+        System.Threading.Tasks.Task RemoveWorkerPaymentsAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerPayments deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveWorkerPaymentsAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveWorkerPaymentsAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new workerRates
@@ -808,7 +991,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerRatess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerRatesResponse>> FindAllWorkerRatesAsync(double? limit, double? offset);
+        System.Threading.Tasks.Task<WorkerRatesPaginationResponse> FindAllWorkerRatesAsync(double? limit, double? offset, string workerId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -816,14 +999,14 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerRatess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerRatesResponse>> FindAllWorkerRatesAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerRatesPaginationResponse> FindAllWorkerRatesAsync(double? limit, double? offset, string workerId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get workerRates by id
         /// </summary>
         /// <returns>WorkerRates found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerRatesResponse> FindOneWorkerRatesAsync(double id);
+        System.Threading.Tasks.Task<WorkerRatesResponse> FindOneWorkerRatesAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -831,25 +1014,25 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerRates found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerRatesResponse> FindOneWorkerRatesAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerRatesResponse> FindOneWorkerRatesAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>WorkerRates updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerRatesResponse> UpdateWorkerRatesAsync(double id, UpdateWorkerRatesRequest body);
+        System.Threading.Tasks.Task<WorkerRatesResponse> UpdateWorkerRatesAsync(string id, UpdateWorkerRatesRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerRates updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<WorkerRatesResponse> UpdateWorkerRatesAsync(double id, UpdateWorkerRatesRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<WorkerRatesResponse> UpdateWorkerRatesAsync(string id, UpdateWorkerRatesRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>WorkerRates deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveWorkerRatesAsync(double id);
+        System.Threading.Tasks.Task RemoveWorkerRatesAsync(string id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerRates deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task RemoveWorkerRatesAsync(double id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RemoveWorkerRatesAsync(string id, System.Threading.CancellationToken cancellationToken);
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task GetHelloAsync();
@@ -1110,9 +1293,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All clients</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ClientResponse>> FindAllClientAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<ClientPaginationResponse> FindAllClientAsync(double? limit, double? offset, string name, string email)
         {
-            return FindAllClientAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllClientAsync(limit, offset, name, email, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1121,7 +1304,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All clients</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ClientResponse>> FindAllClientAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ClientPaginationResponse> FindAllClientAsync(double? limit, double? offset, string name, string email, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1144,6 +1327,14 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (name != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("name")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(name, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (email != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("email")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(email, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -1172,7 +1363,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<ClientResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ClientPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1224,7 +1415,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Client found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ClientResponse> FindOneClientAsync(double id)
+        public virtual System.Threading.Tasks.Task<ClientResponse> FindOneClientAsync(string id)
         {
             return FindOneClientAsync(id, System.Threading.CancellationToken.None);
         }
@@ -1235,7 +1426,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Client found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ClientResponse> FindOneClientAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ClientResponse> FindOneClientAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1329,7 +1520,7 @@ namespace web_app.ApiClient
 
         /// <returns>Client updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ClientResponse> UpdateClientAsync(double id, UpdateClientRequest body)
+        public virtual System.Threading.Tasks.Task<ClientResponse> UpdateClientAsync(string id, UpdateClientRequest body)
         {
             return UpdateClientAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -1337,7 +1528,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Client updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ClientResponse> UpdateClientAsync(double id, UpdateClientRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ClientResponse> UpdateClientAsync(string id, UpdateClientRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1438,7 +1629,7 @@ namespace web_app.ApiClient
 
         /// <returns>Client deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveClientAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveClientAsync(string id)
         {
             return RemoveClientAsync(id, System.Threading.CancellationToken.None);
         }
@@ -1446,7 +1637,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Client deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveClientAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveClientAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1648,9 +1839,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All invoicess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<InvoicesResponse>> FindAllInvoiceAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<InvoicesPaginationResponse> FindAllInvoiceAsync(double? limit, double? offset, string stageId)
         {
-            return FindAllInvoiceAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllInvoiceAsync(limit, offset, stageId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1659,7 +1850,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All invoicess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<InvoicesResponse>> FindAllInvoiceAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<InvoicesPaginationResponse> FindAllInvoiceAsync(double? limit, double? offset, string stageId, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1682,6 +1873,10 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (stageId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("stageId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(stageId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -1710,7 +1905,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<InvoicesResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<InvoicesPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1762,7 +1957,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Invoices found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<InvoicesResponse> FindOneInvoiceAsync(double id)
+        public virtual System.Threading.Tasks.Task<InvoicesResponse> FindOneInvoiceAsync(string id)
         {
             return FindOneInvoiceAsync(id, System.Threading.CancellationToken.None);
         }
@@ -1773,7 +1968,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Invoices found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<InvoicesResponse> FindOneInvoiceAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<InvoicesResponse> FindOneInvoiceAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1867,7 +2062,7 @@ namespace web_app.ApiClient
 
         /// <returns>Invoices updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<InvoicesResponse> UpdateInvoiceAsync(double id, UpdateInvoicesRequest body)
+        public virtual System.Threading.Tasks.Task<InvoicesResponse> UpdateInvoiceAsync(string id, UpdateInvoicesRequest body)
         {
             return UpdateInvoiceAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -1875,7 +2070,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Invoices updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<InvoicesResponse> UpdateInvoiceAsync(double id, UpdateInvoicesRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<InvoicesResponse> UpdateInvoiceAsync(string id, UpdateInvoicesRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1976,7 +2171,7 @@ namespace web_app.ApiClient
 
         /// <returns>Invoices deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveInvoiceAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveInvoiceAsync(string id)
         {
             return RemoveInvoiceAsync(id, System.Threading.CancellationToken.None);
         }
@@ -1984,7 +2179,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Invoices deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveInvoiceAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveInvoiceAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -2186,9 +2381,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All materials</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<MaterialResponse>> FindAllMaterialAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<MaterialPaginationResponse> FindAllMaterialAsync(double? limit, double? offset, string name)
         {
-            return FindAllMaterialAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllMaterialAsync(limit, offset, name, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2197,7 +2392,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All materials</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<MaterialResponse>> FindAllMaterialAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<MaterialPaginationResponse> FindAllMaterialAsync(double? limit, double? offset, string name, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2220,6 +2415,10 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (name != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("name")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(name, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -2248,7 +2447,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<MaterialResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<MaterialPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2300,7 +2499,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Material found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<MaterialResponse> FindOneMaterialAsync(double id)
+        public virtual System.Threading.Tasks.Task<MaterialResponse> FindOneMaterialAsync(string id)
         {
             return FindOneMaterialAsync(id, System.Threading.CancellationToken.None);
         }
@@ -2311,7 +2510,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Material found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<MaterialResponse> FindOneMaterialAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<MaterialResponse> FindOneMaterialAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -2405,7 +2604,7 @@ namespace web_app.ApiClient
 
         /// <returns>Material updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<MaterialResponse> UpdateMaterialAsync(double id, UpdateMaterialRequest body)
+        public virtual System.Threading.Tasks.Task<MaterialResponse> UpdateMaterialAsync(string id, UpdateMaterialRequest body)
         {
             return UpdateMaterialAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -2413,7 +2612,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Material updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<MaterialResponse> UpdateMaterialAsync(double id, UpdateMaterialRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<MaterialResponse> UpdateMaterialAsync(string id, UpdateMaterialRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -2514,7 +2713,7 @@ namespace web_app.ApiClient
 
         /// <returns>Material deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveMaterialAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveMaterialAsync(string id)
         {
             return RemoveMaterialAsync(id, System.Threading.CancellationToken.None);
         }
@@ -2522,7 +2721,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Material deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveMaterialAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveMaterialAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -2724,9 +2923,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All notificationss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NotificationsResponse>> FindAllNotificationAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<NotificationsPaginationResponse> FindAllNotificationAsync(double? limit, double? offset, string clientId, string invoiceId)
         {
-            return FindAllNotificationAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllNotificationAsync(limit, offset, clientId, invoiceId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2735,7 +2934,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All notificationss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NotificationsResponse>> FindAllNotificationAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<NotificationsPaginationResponse> FindAllNotificationAsync(double? limit, double? offset, string clientId, string invoiceId, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2758,6 +2957,14 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (clientId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("clientId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(clientId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (invoiceId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("invoiceId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(invoiceId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -2786,7 +2993,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<NotificationsResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<NotificationsPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2838,7 +3045,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Notifications found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<NotificationsResponse> FindOneNotificationAsync(double id)
+        public virtual System.Threading.Tasks.Task<NotificationsResponse> FindOneNotificationAsync(string id)
         {
             return FindOneNotificationAsync(id, System.Threading.CancellationToken.None);
         }
@@ -2849,7 +3056,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Notifications found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<NotificationsResponse> FindOneNotificationAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<NotificationsResponse> FindOneNotificationAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -2943,7 +3150,7 @@ namespace web_app.ApiClient
 
         /// <returns>Notifications updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<NotificationsResponse> UpdateNotificationAsync(double id, UpdateNotificationsRequest body)
+        public virtual System.Threading.Tasks.Task<NotificationsResponse> UpdateNotificationAsync(string id, UpdateNotificationsRequest body)
         {
             return UpdateNotificationAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -2951,7 +3158,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Notifications updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<NotificationsResponse> UpdateNotificationAsync(double id, UpdateNotificationsRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<NotificationsResponse> UpdateNotificationAsync(string id, UpdateNotificationsRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -3052,7 +3259,7 @@ namespace web_app.ApiClient
 
         /// <returns>Notifications deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveNotificationAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveNotificationAsync(string id)
         {
             return RemoveNotificationAsync(id, System.Threading.CancellationToken.None);
         }
@@ -3060,7 +3267,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Notifications deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveNotificationAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveNotificationAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -3262,9 +3469,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All projects</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProjectResponse>> FindAllProjectAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<ProjectPaginationResponse> FindAllProjectAsync(double? limit, double? offset, string clientId)
         {
-            return FindAllProjectAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllProjectAsync(limit, offset, clientId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3273,7 +3480,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All projects</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProjectResponse>> FindAllProjectAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ProjectPaginationResponse> FindAllProjectAsync(double? limit, double? offset, string clientId, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -3296,6 +3503,10 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (clientId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("clientId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(clientId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -3324,7 +3535,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<ProjectResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ProjectPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3376,7 +3587,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Project found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ProjectResponse> FindOneProjectAsync(double id)
+        public virtual System.Threading.Tasks.Task<ProjectResponse> FindOneProjectAsync(string id)
         {
             return FindOneProjectAsync(id, System.Threading.CancellationToken.None);
         }
@@ -3387,7 +3598,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Project found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ProjectResponse> FindOneProjectAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ProjectResponse> FindOneProjectAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -3481,7 +3692,7 @@ namespace web_app.ApiClient
 
         /// <returns>Project updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ProjectResponse> UpdateProjectAsync(double id, UpdateProjectRequest body)
+        public virtual System.Threading.Tasks.Task<ProjectResponse> UpdateProjectAsync(string id, UpdateProjectRequest body)
         {
             return UpdateProjectAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -3489,7 +3700,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Project updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ProjectResponse> UpdateProjectAsync(double id, UpdateProjectRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ProjectResponse> UpdateProjectAsync(string id, UpdateProjectRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -3590,7 +3801,7 @@ namespace web_app.ApiClient
 
         /// <returns>Project deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveProjectAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveProjectAsync(string id)
         {
             return RemoveProjectAsync(id, System.Threading.CancellationToken.None);
         }
@@ -3598,7 +3809,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Project deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveProjectAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveProjectAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -3800,9 +4011,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All projectQuotations</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProjectQuotationResponse>> FindAllProjectQuotationAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<ProjectQuotationPaginationResponse> FindAllProjectQuotationAsync(double? limit, double? offset, string projectId, string materialId, string serviceId)
         {
-            return FindAllProjectQuotationAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllProjectQuotationAsync(limit, offset, projectId, materialId, serviceId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3811,7 +4022,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All projectQuotations</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProjectQuotationResponse>> FindAllProjectQuotationAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ProjectQuotationPaginationResponse> FindAllProjectQuotationAsync(double? limit, double? offset, string projectId, string materialId, string serviceId, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -3834,6 +4045,18 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (projectId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("projectId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(projectId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (materialId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("materialId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(materialId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (serviceId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("serviceId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(serviceId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -3862,7 +4085,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<ProjectQuotationResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ProjectQuotationPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3914,7 +4137,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>ProjectQuotation found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ProjectQuotationResponse> FindOneProjectQuotationAsync(double id)
+        public virtual System.Threading.Tasks.Task<ProjectQuotationResponse> FindOneProjectQuotationAsync(string id)
         {
             return FindOneProjectQuotationAsync(id, System.Threading.CancellationToken.None);
         }
@@ -3925,7 +4148,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>ProjectQuotation found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ProjectQuotationResponse> FindOneProjectQuotationAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ProjectQuotationResponse> FindOneProjectQuotationAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4019,7 +4242,7 @@ namespace web_app.ApiClient
 
         /// <returns>ProjectQuotation updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ProjectQuotationResponse> UpdateProjectQuotationAsync(double id, UpdateProjectQuotationRequest body)
+        public virtual System.Threading.Tasks.Task<ProjectQuotationResponse> UpdateProjectQuotationAsync(string id, UpdateProjectQuotationRequest body)
         {
             return UpdateProjectQuotationAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -4027,7 +4250,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ProjectQuotation updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ProjectQuotationResponse> UpdateProjectQuotationAsync(double id, UpdateProjectQuotationRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ProjectQuotationResponse> UpdateProjectQuotationAsync(string id, UpdateProjectQuotationRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4128,7 +4351,7 @@ namespace web_app.ApiClient
 
         /// <returns>ProjectQuotation deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveProjectQuotationAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveProjectQuotationAsync(string id)
         {
             return RemoveProjectQuotationAsync(id, System.Threading.CancellationToken.None);
         }
@@ -4136,7 +4359,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ProjectQuotation deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveProjectQuotationAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveProjectQuotationAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4338,9 +4561,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All services</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ServiceResponse>> FindAllServiceAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<ServicePaginationResponse> FindAllServiceAsync(double? limit, double? offset, string name)
         {
-            return FindAllServiceAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllServiceAsync(limit, offset, name, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -4349,7 +4572,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All services</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ServiceResponse>> FindAllServiceAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ServicePaginationResponse> FindAllServiceAsync(double? limit, double? offset, string name, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -4372,6 +4595,10 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (name != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("name")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(name, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -4400,7 +4627,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<ServiceResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ServicePaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -4452,7 +4679,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Service found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ServiceResponse> FindOneServiceAsync(double id)
+        public virtual System.Threading.Tasks.Task<ServiceResponse> FindOneServiceAsync(string id)
         {
             return FindOneServiceAsync(id, System.Threading.CancellationToken.None);
         }
@@ -4463,7 +4690,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Service found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ServiceResponse> FindOneServiceAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ServiceResponse> FindOneServiceAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4557,7 +4784,7 @@ namespace web_app.ApiClient
 
         /// <returns>Service updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ServiceResponse> UpdateServiceAsync(double id, UpdateServiceRequest body)
+        public virtual System.Threading.Tasks.Task<ServiceResponse> UpdateServiceAsync(string id, UpdateServiceRequest body)
         {
             return UpdateServiceAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -4565,7 +4792,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Service updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ServiceResponse> UpdateServiceAsync(double id, UpdateServiceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ServiceResponse> UpdateServiceAsync(string id, UpdateServiceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4666,7 +4893,7 @@ namespace web_app.ApiClient
 
         /// <returns>Service deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveServiceAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveServiceAsync(string id)
         {
             return RemoveServiceAsync(id, System.Threading.CancellationToken.None);
         }
@@ -4674,7 +4901,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Service deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveServiceAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveServiceAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4876,9 +5103,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All serviceSheetss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ServiceSheetsResponse>> FindAllServiceSheetsAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<ServiceSheetsPaginationResponse> FindAllServiceSheetsAsync(double? limit, double? offset, string workerId, string projectId)
         {
-            return FindAllServiceSheetsAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllServiceSheetsAsync(limit, offset, workerId, projectId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -4887,7 +5114,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All serviceSheetss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ServiceSheetsResponse>> FindAllServiceSheetsAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ServiceSheetsPaginationResponse> FindAllServiceSheetsAsync(double? limit, double? offset, string workerId, string projectId, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -4910,6 +5137,14 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (workerId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("workerId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(workerId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (projectId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("projectId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(projectId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -4938,7 +5173,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<ServiceSheetsResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ServiceSheetsPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -4990,7 +5225,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>ServiceSheets found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ServiceSheetsResponse> FindOneServiceSheetsAsync(double id)
+        public virtual System.Threading.Tasks.Task<ServiceSheetsResponse> FindOneServiceSheetsAsync(string id)
         {
             return FindOneServiceSheetsAsync(id, System.Threading.CancellationToken.None);
         }
@@ -5001,7 +5236,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>ServiceSheets found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ServiceSheetsResponse> FindOneServiceSheetsAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ServiceSheetsResponse> FindOneServiceSheetsAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5095,7 +5330,7 @@ namespace web_app.ApiClient
 
         /// <returns>ServiceSheets updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ServiceSheetsResponse> UpdateServiceSheetsAsync(double id, UpdateServiceSheetsRequest body)
+        public virtual System.Threading.Tasks.Task<ServiceSheetsResponse> UpdateServiceSheetsAsync(string id, UpdateServiceSheetsRequest body)
         {
             return UpdateServiceSheetsAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -5103,7 +5338,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ServiceSheets updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ServiceSheetsResponse> UpdateServiceSheetsAsync(double id, UpdateServiceSheetsRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ServiceSheetsResponse> UpdateServiceSheetsAsync(string id, UpdateServiceSheetsRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5204,7 +5439,7 @@ namespace web_app.ApiClient
 
         /// <returns>ServiceSheets deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveServiceSheetsAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveServiceSheetsAsync(string id)
         {
             return RemoveServiceSheetsAsync(id, System.Threading.CancellationToken.None);
         }
@@ -5212,7 +5447,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ServiceSheets deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveServiceSheetsAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveServiceSheetsAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5414,9 +5649,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All stages</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<StageResponse>> FindAllStageAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<StagePaginationResponse> FindAllStageAsync(double? limit, double? offset, string projectId, string name)
         {
-            return FindAllStageAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllStageAsync(limit, offset, projectId, name, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -5425,7 +5660,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All stages</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<StageResponse>> FindAllStageAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<StagePaginationResponse> FindAllStageAsync(double? limit, double? offset, string projectId, string name, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -5448,6 +5683,14 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (projectId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("projectId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(projectId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (name != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("name")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(name, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -5476,7 +5719,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<StageResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<StagePaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5528,7 +5771,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Stage found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<StageResponse> FindOneStageAsync(double id)
+        public virtual System.Threading.Tasks.Task<StageResponse> FindOneStageAsync(string id)
         {
             return FindOneStageAsync(id, System.Threading.CancellationToken.None);
         }
@@ -5539,7 +5782,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Stage found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<StageResponse> FindOneStageAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<StageResponse> FindOneStageAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5633,7 +5876,7 @@ namespace web_app.ApiClient
 
         /// <returns>Stage updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<StageResponse> UpdateStageAsync(double id, UpdateStageRequest body)
+        public virtual System.Threading.Tasks.Task<StageResponse> UpdateStageAsync(string id, UpdateStageRequest body)
         {
             return UpdateStageAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -5641,7 +5884,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Stage updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<StageResponse> UpdateStageAsync(double id, UpdateStageRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<StageResponse> UpdateStageAsync(string id, UpdateStageRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5742,7 +5985,7 @@ namespace web_app.ApiClient
 
         /// <returns>Stage deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveStageAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveStageAsync(string id)
         {
             return RemoveStageAsync(id, System.Threading.CancellationToken.None);
         }
@@ -5750,7 +5993,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Stage deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveStageAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveStageAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5795,6 +6038,1421 @@ namespace web_app.ApiClient
                         if (status_ == 200)
                         {
                             return;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Create a new user
+        /// </summary>
+        /// <returns>User created</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<UserResponse> CreateUserAsync(CreateUserRequest body)
+        {
+            return CreateUserAsync(body, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create a new user
+        /// </summary>
+        /// <returns>User created</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<UserResponse> CreateUserAsync(CreateUserRequest body, System.Threading.CancellationToken cancellationToken)
+        {
+            if (body == null)
+                throw new System.ArgumentNullException("body");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, JsonSerializerSettings);
+                    var content_ = new System.Net.Http.StringContent(json_);
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/users"
+                    urlBuilder_.Append("v1/users");
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<UserResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Get all users
+        /// </summary>
+        /// <returns>All users</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<UserPaginationResponse> FindAllUserAsync(double? limit, double? offset, string search)
+        {
+            return FindAllUserAsync(limit, offset, search, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all users
+        /// </summary>
+        /// <returns>All users</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<UserPaginationResponse> FindAllUserAsync(double? limit, double? offset, string search, System.Threading.CancellationToken cancellationToken)
+        {
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/users"
+                    urlBuilder_.Append("v1/users");
+                    urlBuilder_.Append('?');
+                    if (limit != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("limit")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(limit, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (offset != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (search != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("search")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(search, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    urlBuilder_.Length--;
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<UserPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Get user roles
+        /// </summary>
+        /// <returns>User roles</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RoleResponse>> FindUserRolesAsync(string id)
+        {
+            return FindUserRolesAsync(id, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get user roles
+        /// </summary>
+        /// <returns>User roles</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RoleResponse>> FindUserRolesAsync(string id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/users/{id}/roles"
+                    urlBuilder_.Append("v1/users/");
+                    urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+                    urlBuilder_.Append("/roles");
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<RoleResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <returns>User found</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<UserResponse> FindOneUserAsync(string id)
+        {
+            return FindOneUserAsync(id, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <returns>User found</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<UserResponse> FindOneUserAsync(string id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/users/{id}"
+                    urlBuilder_.Append("v1/users/");
+                    urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<UserResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <returns>User updated</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<UserResponse> UpdateUserAsync(string id, UpdateUserRequest body)
+        {
+            return UpdateUserAsync(id, body, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>User updated</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<UserResponse> UpdateUserAsync(string id, UpdateUserRequest body, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            if (body == null)
+                throw new System.ArgumentNullException("body");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, JsonSerializerSettings);
+                    var content_ = new System.Net.Http.StringContent(json_);
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PATCH");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/users/{id}"
+                    urlBuilder_.Append("v1/users/");
+                    urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<UserResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <returns>User deleted</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task RemoveUserAsync(string id)
+        {
+            return RemoveUserAsync(id, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>User deleted</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task RemoveUserAsync(string id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/users/{id}"
+                    urlBuilder_.Append("v1/users/");
+                    urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Login user
+        /// </summary>
+        /// <returns>User logged</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<LoginResponse> LoginUserAsync(LoginRequest body)
+        {
+            return LoginUserAsync(body, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Login user
+        /// </summary>
+        /// <returns>User logged</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<LoginResponse> LoginUserAsync(LoginRequest body, System.Threading.CancellationToken cancellationToken)
+        {
+            if (body == null)
+                throw new System.ArgumentNullException("body");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, JsonSerializerSettings);
+                    var content_ = new System.Net.Http.StringContent(json_);
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/auth/login"
+                    urlBuilder_.Append("v1/auth/login");
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<LoginResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Logout user
+        /// </summary>
+        /// <returns>User logged out</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task LogoutUserAsync(string refreshToken)
+        {
+            return LogoutUserAsync(refreshToken, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Logout user
+        /// </summary>
+        /// <returns>User logged out</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task LogoutUserAsync(string refreshToken, System.Threading.CancellationToken cancellationToken)
+        {
+            if (refreshToken == null)
+                throw new System.ArgumentNullException("refreshToken");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Content = new System.Net.Http.StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/auth/logout"
+                    urlBuilder_.Append("v1/auth/logout");
+                    urlBuilder_.Append('?');
+                    urlBuilder_.Append(System.Uri.EscapeDataString("refreshToken")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(refreshToken, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    urlBuilder_.Length--;
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Refresh user token
+        /// </summary>
+        /// <returns>User refreshed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<LoginResponse> RefreshUserAsync(string refreshToken)
+        {
+            return RefreshUserAsync(refreshToken, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Refresh user token
+        /// </summary>
+        /// <returns>User refreshed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<LoginResponse> RefreshUserAsync(string refreshToken, System.Threading.CancellationToken cancellationToken)
+        {
+            if (refreshToken == null)
+                throw new System.ArgumentNullException("refreshToken");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Content = new System.Net.Http.StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/auth/refresh"
+                    urlBuilder_.Append("v1/auth/refresh");
+                    urlBuilder_.Append('?');
+                    urlBuilder_.Append(System.Uri.EscapeDataString("refreshToken")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(refreshToken, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    urlBuilder_.Length--;
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<LoginResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Change user password
+        /// </summary>
+        /// <returns>Password changed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<UserResponse> ChangePasswordAsync(ChangePasswordRequest body)
+        {
+            return ChangePasswordAsync(body, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Change user password
+        /// </summary>
+        /// <returns>Password changed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<UserResponse> ChangePasswordAsync(ChangePasswordRequest body, System.Threading.CancellationToken cancellationToken)
+        {
+            if (body == null)
+                throw new System.ArgumentNullException("body");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, JsonSerializerSettings);
+                    var content_ = new System.Net.Http.StringContent(json_);
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/auth/change-password"
+                    urlBuilder_.Append("v1/auth/change-password");
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<UserResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Assign role to user
+        /// </summary>
+        /// <returns>Role assigned</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<AssignRoleResponse> AssignRoleToUserAsync(AssignRoleToUserRequest body)
+        {
+            return AssignRoleToUserAsync(body, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Assign role to user
+        /// </summary>
+        /// <returns>Role assigned</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<AssignRoleResponse> AssignRoleToUserAsync(AssignRoleToUserRequest body, System.Threading.CancellationToken cancellationToken)
+        {
+            if (body == null)
+                throw new System.ArgumentNullException("body");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, JsonSerializerSettings);
+                    var content_ = new System.Net.Http.StringContent(json_);
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/auth/assign-role"
+                    urlBuilder_.Append("v1/auth/assign-role");
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<AssignRoleResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Remove role from user
+        /// </summary>
+        /// <returns>Role removed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<RemoveRoleFromUserRequest> RemoveRoleFromUserAsync(RemoveRoleFromUserRequest body)
+        {
+            return RemoveRoleFromUserAsync(body, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Remove role from user
+        /// </summary>
+        /// <returns>Role removed</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<RemoveRoleFromUserRequest> RemoveRoleFromUserAsync(RemoveRoleFromUserRequest body, System.Threading.CancellationToken cancellationToken)
+        {
+            if (body == null)
+                throw new System.ArgumentNullException("body");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, JsonSerializerSettings);
+                    var content_ = new System.Net.Http.StringContent(json_);
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/auth/remove-role"
+                    urlBuilder_.Append("v1/auth/remove-role");
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<RemoveRoleFromUserRequest>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Bad request", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ApplicationExceptionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ApplicationExceptionResponse>("Internal server error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Get all roles
+        /// </summary>
+        /// <returns>Roles retrieved</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RoleResponse>> GetRolesAsync()
+        {
+            return GetRolesAsync(System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all roles
+        /// </summary>
+        /// <returns>Roles retrieved</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RoleResponse>> GetRolesAsync(System.Threading.CancellationToken cancellationToken)
+        {
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                    if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
+                    // Operation Path: "v1/auth/roles"
+                    urlBuilder_.Append("v1/auth/roles");
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<RoleResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
                         }
                         else
                         if (status_ == 400)
@@ -5952,9 +7610,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workers</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerResponse>> FindAllWorkerAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<WorkerPaginationResponse> FindAllWorkerAsync(double? limit, double? offset, string name)
         {
-            return FindAllWorkerAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllWorkerAsync(limit, offset, name, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -5963,7 +7621,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workers</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerResponse>> FindAllWorkerAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerPaginationResponse> FindAllWorkerAsync(double? limit, double? offset, string name, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -5986,6 +7644,10 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (name != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("name")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(name, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -6014,7 +7676,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<WorkerResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<WorkerPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -6066,7 +7728,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Worker found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<WorkerResponse> FindOneWorkerAsync(double id)
+        public virtual System.Threading.Tasks.Task<WorkerResponse> FindOneWorkerAsync(string id)
         {
             return FindOneWorkerAsync(id, System.Threading.CancellationToken.None);
         }
@@ -6077,7 +7739,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>Worker found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<WorkerResponse> FindOneWorkerAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerResponse> FindOneWorkerAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -6171,7 +7833,7 @@ namespace web_app.ApiClient
 
         /// <returns>Worker updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<WorkerResponse> UpdateWorkerAsync(double id, UpdateWorkerRequest body)
+        public virtual System.Threading.Tasks.Task<WorkerResponse> UpdateWorkerAsync(string id, UpdateWorkerRequest body)
         {
             return UpdateWorkerAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -6179,7 +7841,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Worker updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<WorkerResponse> UpdateWorkerAsync(double id, UpdateWorkerRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerResponse> UpdateWorkerAsync(string id, UpdateWorkerRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -6280,7 +7942,7 @@ namespace web_app.ApiClient
 
         /// <returns>Worker deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveWorkerAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveWorkerAsync(string id)
         {
             return RemoveWorkerAsync(id, System.Threading.CancellationToken.None);
         }
@@ -6288,7 +7950,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Worker deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveWorkerAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveWorkerAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -6490,9 +8152,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerAssignments</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerAssignmentResponse>> FindAllWorkerAssignmentAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<WorkerAssignmentPaginationResponse> FindAllWorkerAssignmentAsync(double? limit, double? offset, string workerId, string projectId, string stageId)
         {
-            return FindAllWorkerAssignmentAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllWorkerAssignmentAsync(limit, offset, workerId, projectId, stageId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -6501,7 +8163,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerAssignments</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerAssignmentResponse>> FindAllWorkerAssignmentAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerAssignmentPaginationResponse> FindAllWorkerAssignmentAsync(double? limit, double? offset, string workerId, string projectId, string stageId, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -6524,6 +8186,18 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (workerId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("workerId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(workerId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (projectId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("projectId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(projectId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (stageId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("stageId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(stageId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -6552,7 +8226,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<WorkerAssignmentResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<WorkerAssignmentPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -6604,7 +8278,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerAssignment found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<WorkerAssignmentResponse> FindOneWorkerAssignmentAsync(double id)
+        public virtual System.Threading.Tasks.Task<WorkerAssignmentResponse> FindOneWorkerAssignmentAsync(string id)
         {
             return FindOneWorkerAssignmentAsync(id, System.Threading.CancellationToken.None);
         }
@@ -6615,7 +8289,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerAssignment found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<WorkerAssignmentResponse> FindOneWorkerAssignmentAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerAssignmentResponse> FindOneWorkerAssignmentAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -6709,7 +8383,7 @@ namespace web_app.ApiClient
 
         /// <returns>WorkerAssignment updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<WorkerAssignmentResponse> UpdateWorkerAssignmentAsync(double id, UpdateWorkerAssignmentRequest body)
+        public virtual System.Threading.Tasks.Task<WorkerAssignmentResponse> UpdateWorkerAssignmentAsync(string id, UpdateWorkerAssignmentRequest body)
         {
             return UpdateWorkerAssignmentAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -6717,7 +8391,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerAssignment updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<WorkerAssignmentResponse> UpdateWorkerAssignmentAsync(double id, UpdateWorkerAssignmentRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerAssignmentResponse> UpdateWorkerAssignmentAsync(string id, UpdateWorkerAssignmentRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -6818,7 +8492,7 @@ namespace web_app.ApiClient
 
         /// <returns>WorkerAssignment deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveWorkerAssignmentAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveWorkerAssignmentAsync(string id)
         {
             return RemoveWorkerAssignmentAsync(id, System.Threading.CancellationToken.None);
         }
@@ -6826,7 +8500,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerAssignment deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveWorkerAssignmentAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveWorkerAssignmentAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -6948,8 +8622,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerPayments"
-                    urlBuilder_.Append("v1/workerPayments");
+                    // Operation Path: "v1/worker-payments"
+                    urlBuilder_.Append("v1/worker-payments");
 
                     PrepareRequest(client_, request_, urlBuilder_);
 
@@ -7028,9 +8702,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerPaymentss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerPaymentsResponse>> FindAllWorkerPaymentsAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<WorkerPaymentsPaginationResponse> FindAllWorkerPaymentsAsync(double? limit, double? offset, string workerId, string serviceSheetId)
         {
-            return FindAllWorkerPaymentsAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllWorkerPaymentsAsync(limit, offset, workerId, serviceSheetId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -7039,7 +8713,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerPaymentss</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerPaymentsResponse>> FindAllWorkerPaymentsAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerPaymentsPaginationResponse> FindAllWorkerPaymentsAsync(double? limit, double? offset, string workerId, string serviceSheetId, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -7052,8 +8726,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerPayments"
-                    urlBuilder_.Append("v1/workerPayments");
+                    // Operation Path: "v1/worker-payments"
+                    urlBuilder_.Append("v1/worker-payments");
                     urlBuilder_.Append('?');
                     if (limit != null)
                     {
@@ -7062,6 +8736,14 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (workerId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("workerId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(workerId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (serviceSheetId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("serviceSheetId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(serviceSheetId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -7090,7 +8772,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<WorkerPaymentsResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<WorkerPaymentsPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -7142,7 +8824,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerPayments found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<WorkerPaymentsResponse> FindOneWorkerPaymentsAsync(double id)
+        public virtual System.Threading.Tasks.Task<WorkerPaymentsResponse> FindOneWorkerPaymentsAsync(string id)
         {
             return FindOneWorkerPaymentsAsync(id, System.Threading.CancellationToken.None);
         }
@@ -7153,7 +8835,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerPayments found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<WorkerPaymentsResponse> FindOneWorkerPaymentsAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerPaymentsResponse> FindOneWorkerPaymentsAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7169,8 +8851,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerPayments/{id}"
-                    urlBuilder_.Append("v1/workerPayments/");
+                    // Operation Path: "v1/worker-payments/{id}"
+                    urlBuilder_.Append("v1/worker-payments/");
                     urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -7247,7 +8929,7 @@ namespace web_app.ApiClient
 
         /// <returns>WorkerPayments updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<WorkerPaymentsResponse> UpdateWorkerPaymentsAsync(double id, UpdateWorkerPaymentsRequest body)
+        public virtual System.Threading.Tasks.Task<WorkerPaymentsResponse> UpdateWorkerPaymentsAsync(string id, UpdateWorkerPaymentsRequest body)
         {
             return UpdateWorkerPaymentsAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -7255,7 +8937,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerPayments updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<WorkerPaymentsResponse> UpdateWorkerPaymentsAsync(double id, UpdateWorkerPaymentsRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerPaymentsResponse> UpdateWorkerPaymentsAsync(string id, UpdateWorkerPaymentsRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7278,8 +8960,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerPayments/{id}"
-                    urlBuilder_.Append("v1/workerPayments/");
+                    // Operation Path: "v1/worker-payments/{id}"
+                    urlBuilder_.Append("v1/worker-payments/");
                     urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -7356,7 +9038,7 @@ namespace web_app.ApiClient
 
         /// <returns>WorkerPayments deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveWorkerPaymentsAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveWorkerPaymentsAsync(string id)
         {
             return RemoveWorkerPaymentsAsync(id, System.Threading.CancellationToken.None);
         }
@@ -7364,7 +9046,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerPayments deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveWorkerPaymentsAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveWorkerPaymentsAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7379,8 +9061,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerPayments/{id}"
-                    urlBuilder_.Append("v1/workerPayments/");
+                    // Operation Path: "v1/worker-payments/{id}"
+                    urlBuilder_.Append("v1/worker-payments/");
                     urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -7486,8 +9168,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerRates"
-                    urlBuilder_.Append("v1/workerRates");
+                    // Operation Path: "v1/worker-rates"
+                    urlBuilder_.Append("v1/worker-rates");
 
                     PrepareRequest(client_, request_, urlBuilder_);
 
@@ -7566,9 +9248,9 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerRatess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerRatesResponse>> FindAllWorkerRatesAsync(double? limit, double? offset)
+        public virtual System.Threading.Tasks.Task<WorkerRatesPaginationResponse> FindAllWorkerRatesAsync(double? limit, double? offset, string workerId)
         {
-            return FindAllWorkerRatesAsync(limit, offset, System.Threading.CancellationToken.None);
+            return FindAllWorkerRatesAsync(limit, offset, workerId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -7577,7 +9259,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>All workerRatess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WorkerRatesResponse>> FindAllWorkerRatesAsync(double? limit, double? offset, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerRatesPaginationResponse> FindAllWorkerRatesAsync(double? limit, double? offset, string workerId, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -7590,8 +9272,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerRates"
-                    urlBuilder_.Append("v1/workerRates");
+                    // Operation Path: "v1/worker-rates"
+                    urlBuilder_.Append("v1/worker-rates");
                     urlBuilder_.Append('?');
                     if (limit != null)
                     {
@@ -7600,6 +9282,10 @@ namespace web_app.ApiClient
                     if (offset != null)
                     {
                         urlBuilder_.Append(System.Uri.EscapeDataString("offset")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(offset, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    if (workerId != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("workerId")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(workerId, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
                     }
                     urlBuilder_.Length--;
 
@@ -7628,7 +9314,7 @@ namespace web_app.ApiClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<WorkerRatesResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<WorkerRatesPaginationResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -7680,7 +9366,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerRates found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<WorkerRatesResponse> FindOneWorkerRatesAsync(double id)
+        public virtual System.Threading.Tasks.Task<WorkerRatesResponse> FindOneWorkerRatesAsync(string id)
         {
             return FindOneWorkerRatesAsync(id, System.Threading.CancellationToken.None);
         }
@@ -7691,7 +9377,7 @@ namespace web_app.ApiClient
         /// </summary>
         /// <returns>WorkerRates found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<WorkerRatesResponse> FindOneWorkerRatesAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerRatesResponse> FindOneWorkerRatesAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7707,8 +9393,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerRates/{id}"
-                    urlBuilder_.Append("v1/workerRates/");
+                    // Operation Path: "v1/worker-rates/{id}"
+                    urlBuilder_.Append("v1/worker-rates/");
                     urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -7785,7 +9471,7 @@ namespace web_app.ApiClient
 
         /// <returns>WorkerRates updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<WorkerRatesResponse> UpdateWorkerRatesAsync(double id, UpdateWorkerRatesRequest body)
+        public virtual System.Threading.Tasks.Task<WorkerRatesResponse> UpdateWorkerRatesAsync(string id, UpdateWorkerRatesRequest body)
         {
             return UpdateWorkerRatesAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -7793,7 +9479,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerRates updated</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<WorkerRatesResponse> UpdateWorkerRatesAsync(double id, UpdateWorkerRatesRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<WorkerRatesResponse> UpdateWorkerRatesAsync(string id, UpdateWorkerRatesRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7816,8 +9502,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerRates/{id}"
-                    urlBuilder_.Append("v1/workerRates/");
+                    // Operation Path: "v1/worker-rates/{id}"
+                    urlBuilder_.Append("v1/worker-rates/");
                     urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -7894,7 +9580,7 @@ namespace web_app.ApiClient
 
         /// <returns>WorkerRates deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveWorkerRatesAsync(double id)
+        public virtual System.Threading.Tasks.Task RemoveWorkerRatesAsync(string id)
         {
             return RemoveWorkerRatesAsync(id, System.Threading.CancellationToken.None);
         }
@@ -7902,7 +9588,7 @@ namespace web_app.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>WorkerRates deleted</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveWorkerRatesAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task RemoveWorkerRatesAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7917,8 +9603,8 @@ namespace web_app.ApiClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "v1/workerRates/{id}"
-                    urlBuilder_.Append("v1/workerRates/");
+                    // Operation Path: "v1/worker-rates/{id}"
+                    urlBuilder_.Append("v1/worker-rates/");
                     urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -8324,7 +10010,7 @@ namespace web_app.ApiClient
         /// Id of the client
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Address of the client
@@ -8392,54 +10078,80 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ClientPaginationResponse
+    {
+        /// <summary>
+        /// List of clients
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.Collections.Generic.ICollection<ClientResponse> Data { get; set; }
+
+        /// <summary>
+        /// Total clients
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateClientRequest
     {
         /// <summary>
         /// Name of the client
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// Address of the client
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Address { get; set; }
 
         /// <summary>
         /// Contact of the client
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("contact", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("contact", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Contact { get; set; }
 
         /// <summary>
         /// Email of the client
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; set; }
 
         /// <summary>
         /// Phone of the client
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Phone { get; set; }
 
         /// <summary>
         /// City of the client
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string City { get; set; }
 
         /// <summary>
         /// State of the client
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string State { get; set; }
 
         /// <summary>
         /// Zip of the client
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Zip { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -8561,36 +10273,63 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class InvoicesPaginationResponse
+    {
+        /// <summary>
+        /// Data of the invoices
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<InvoicesResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<InvoicesResponse>();
+
+        /// <summary>
+        /// Total of the invoices
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateInvoicesRequest
     {
         /// <summary>
         /// Stage id of invoices
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("stageId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("stageId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StageId { get; set; }
 
         /// <summary>
         /// Invoice number of invoices
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("invoiceNumber", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("invoiceNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string InvoiceNumber { get; set; }
 
         /// <summary>
         /// Date of invoices
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Date { get; set; }
 
         /// <summary>
         /// Total amount of invoices
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("totalAmount", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("totalAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? TotalAmount { get; set; }
 
         /// <summary>
         /// Show materials of invoices
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("showMaterials", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("showMaterials", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? ShowMaterials { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -8676,18 +10415,45 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class MaterialPaginationResponse
+    {
+        /// <summary>
+        /// Data of the material
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<MaterialResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<MaterialResponse>();
+
+        /// <summary>
+        /// Total of the material
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateMaterialRequest
     {
         /// <summary>
         /// Name of the material
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// Unit cost of the material
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("unitCost", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("unitCost", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? UnitCost { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -8785,24 +10551,51 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class NotificationsPaginationResponse
+    {
+        /// <summary>
+        /// Data of the notifications
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<NotificationsResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<NotificationsResponse>();
+
+        /// <summary>
+        /// Total of the notifications
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateNotificationsRequest
     {
         /// <summary>
         /// Id of the notifications
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("invoiceId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("invoiceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string InvoiceId { get; set; }
 
         /// <summary>
         /// Id of the notifications
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("clientId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("clientId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// Id of the notifications
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -8936,42 +10729,69 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ProjectPaginationResponse
+    {
+        /// <summary>
+        /// Data of the project
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ProjectResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<ProjectResponse>();
+
+        /// <summary>
+        /// Total of the project
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateProjectRequest
     {
         /// <summary>
         /// Client id of the project
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("clientId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("clientId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// Name of the project
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// Description of the project
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
 
         /// <summary>
         /// Location of the project
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Location { get; set; }
 
         /// <summary>
         /// Start date of the project
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StartDate { get; set; }
 
         /// <summary>
         /// End date of the project
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EndDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -9093,36 +10913,63 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ProjectQuotationPaginationResponse
+    {
+        /// <summary>
+        /// Data of the projectQuotation
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ProjectQuotationResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<ProjectQuotationResponse>();
+
+        /// <summary>
+        /// Total of the projectQuotation
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateProjectQuotationRequest
     {
         /// <summary>
         /// Name of the projectQuotation
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("projectId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("projectId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProjectId { get; set; }
 
         /// <summary>
         /// Material ID of the projectQuotation
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("materialId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("materialId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MaterialId { get; set; }
 
         /// <summary>
         /// Service ID of the projectQuotation
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("serviceId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("serviceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceId { get; set; }
 
         /// <summary>
         /// Quantity of the projectQuotation
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("quantity", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("quantity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Quantity { get; set; }
 
         /// <summary>
         /// Total cost of the projectQuotation
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("totalCost", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("totalCost", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? TotalCost { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -9155,7 +11002,7 @@ namespace web_app.ApiClient
         /// Project ID of the service
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unitCost", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string UnitCost { get; set; }
+        public double? UnitCost { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -9220,25 +11067,52 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ServicePaginationResponse
+    {
+        /// <summary>
+        /// Data of the service
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ServiceResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<ServiceResponse>();
+
+        /// <summary>
+        /// Total of the service
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateServiceRequest
     {
         /// <summary>
         /// Name of the service
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// Description of the service
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
 
         /// <summary>
         /// Project ID of the service
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("unitCost", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string UnitCost { get; set; }
+        [Newtonsoft.Json.JsonProperty("unitCost", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? UnitCost { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -9276,7 +11150,7 @@ namespace web_app.ApiClient
         /// Email of the serviceSheets
         /// </summary>
         [Newtonsoft.Json.JsonProperty("totalHours", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string TotalHours { get; set; }
+        public double? TotalHours { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -9321,7 +11195,7 @@ namespace web_app.ApiClient
         /// Email of the serviceSheets
         /// </summary>
         [Newtonsoft.Json.JsonProperty("totalHours", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string TotalHours { get; set; }
+        public double? TotalHours { get; set; }
 
         /// <summary>
         /// Created at of the serviceSheets
@@ -9347,31 +11221,58 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ServiceSheetsPaginationResponse
+    {
+        /// <summary>
+        /// Data of the serviceSheets
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ServiceSheetsResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<ServiceSheetsResponse>();
+
+        /// <summary>
+        /// Total of the serviceSheets
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateServiceSheetsRequest
     {
         /// <summary>
         /// Name of the serviceSheets
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("workerId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("workerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WorkerId { get; set; }
 
         /// <summary>
         /// Speciality of the serviceSheets
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("projectId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("projectId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProjectId { get; set; }
 
         /// <summary>
         /// Contact of the serviceSheets
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("weekStartDate", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("weekStartDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WeekStartDate { get; set; }
 
         /// <summary>
         /// Email of the serviceSheets
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("totalHours", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string TotalHours { get; set; }
+        [Newtonsoft.Json.JsonProperty("totalHours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? TotalHours { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -9478,7 +11379,7 @@ namespace web_app.ApiClient
         /// Adjusted percentage of the stage
         /// </summary>
         [Newtonsoft.Json.JsonProperty("adjustedPercentage", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? AdjustedPercentage { get; set; }
+        public double? AdjustedPercentage { get; set; }
 
         /// <summary>
         /// Start date of the stage
@@ -9516,49 +11417,553 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class StagePaginationResponse
+    {
+        /// <summary>
+        /// Data of the stage
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<StageResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<StageResponse>();
+
+        /// <summary>
+        /// Total of the stage
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateStageRequest
     {
         /// <summary>
         /// Name of the stage
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// Description of the stage
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
 
         /// <summary>
         /// Project ID of the stage
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("projectId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("projectId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProjectId { get; set; }
 
         /// <summary>
         /// Percentage of the stage
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("percentage", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("percentage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Percentage { get; set; }
 
         /// <summary>
         /// Adjusted percentage of the stage
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("adjustedPercentage", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("adjustedPercentage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? AdjustedPercentage { get; set; }
 
         /// <summary>
         /// Start date of the stage
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? StartDate { get; set; }
 
         /// <summary>
         /// End date of the stage
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? EndDate { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CreateUserRequest
+    {
+        /// <summary>
+        /// Full name of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("fullname", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Fullname { get; set; }
+
+        /// <summary>
+        /// Password of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Password { get; set; }
+
+        /// <summary>
+        /// Email of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Status of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public CreateUserRequestStatus? Status { get; set; }
+
+        /// <summary>
+        /// Is the user enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("isEnabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsEnabled { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UserResponse
+    {
+        /// <summary>
+        /// Id of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Worker id of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("username", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Username { get; set; }
+
+        /// <summary>
+        /// Worker id of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("fullname", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Fullname { get; set; }
+
+        /// <summary>
+        /// Rate of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Password { get; set; }
+
+        /// <summary>
+        /// Effective date of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public UserResponseStatus Status { get; set; }
+
+        /// <summary>
+        /// Is the user enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("isEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsEnabled { get; set; }
+
+        /// <summary>
+        /// Creation date of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public object CreatedAt { get; set; }
+
+        /// <summary>
+        /// Update date of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
+        public object UpdatedAt { get; set; }
+
+        /// <summary>
+        /// Deletion date of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("deletedAt", Required = Newtonsoft.Json.Required.AllowNull)]
+        public object DeletedAt { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UserPaginationResponse
+    {
+        /// <summary>
+        /// Data of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<UserResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<UserResponse>();
+
+        /// <summary>
+        /// Total of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class RoleResponse
+    {
+        /// <summary>
+        /// Role identifier
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Role name
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("roleName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string RoleName { get; set; }
+
+        /// <summary>
+        /// Role description
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("roleDescription", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string RoleDescription { get; set; }
+
+        /// <summary>
+        /// Role
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("role", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Role { get; set; }
+
+        /// <summary>
+        /// Creation date
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string CreatedAt { get; set; }
+
+        /// <summary>
+        /// Update date
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string UpdatedAt { get; set; }
+
+        /// <summary>
+        /// Deletion date
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("deletedAt", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string DeletedAt { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UpdateUserRequest
+    {
+        /// <summary>
+        /// Full name of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("fullname", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Fullname { get; set; }
+
+        /// <summary>
+        /// Password of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Password { get; set; }
+
+        /// <summary>
+        /// Email of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Status of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public UpdateUserRequestStatus? Status { get; set; }
+
+        /// <summary>
+        /// Is the user enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("isEnabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsEnabled { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class LoginRequest
+    {
+        /// <summary>
+        /// Email of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Password of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Password { get; set; }
+
+        /// <summary>
+        /// OTP of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("otp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Otp { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class LoginResponse
+    {
+        /// <summary>
+        /// User data
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserResponse User { get; set; } = new UserResponse();
+
+        /// <summary>
+        /// Roles of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("roles", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> Roles { get; set; } = new System.Collections.ObjectModel.Collection<string>();
+
+        /// <summary>
+        /// Access token of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("accessToken", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string AccessToken { get; set; }
+
+        /// <summary>
+        /// Refresh token of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("refreshToken", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string RefreshToken { get; set; }
+
+        /// <summary>
+        /// Access token expiration time
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("accessTokenExpiresIn", Required = Newtonsoft.Json.Required.Always)]
+        public double AccessTokenExpiresIn { get; set; }
+
+        /// <summary>
+        /// Refresh token expiration time
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("refreshTokenExpiresIn", Required = Newtonsoft.Json.Required.Always)]
+        public double RefreshTokenExpiresIn { get; set; }
+
+        /// <summary>
+        /// Access token expiration date
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("accessTokenExpiresAt", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public object AccessTokenExpiresAt { get; set; }
+
+        /// <summary>
+        /// Refresh token expiration date
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("refreshTokenExpiresAt", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public object RefreshTokenExpiresAt { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ChangePasswordRequest
+    {
+        /// <summary>
+        /// Id of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Old password of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("oldPassword", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string OldPassword { get; set; }
+
+        /// <summary>
+        /// New password of the user
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("newPassword", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string NewPassword { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AssignRoleToUserRequest
+    {
+        /// <summary>
+        /// User identifier
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string UserId { get; set; }
+
+        /// <summary>
+        /// Role identifier
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("roleId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string RoleId { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AssignRoleResponse
+    {
+        /// <summary>
+        /// User
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserResponse User { get; set; } = new UserResponse();
+
+        /// <summary>
+        /// Roles
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("roles", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public RoleResponse Roles { get; set; } = new RoleResponse();
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class RemoveRoleFromUserRequest
+    {
+        /// <summary>
+        /// User identifier
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string UserId { get; set; }
+
+        /// <summary>
+        /// Role identifier
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("roleId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string RoleId { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -9611,16 +12016,16 @@ namespace web_app.ApiClient
         public string SocialSecurity { get; set; }
 
         /// <summary>
-        /// State of the worker
+        /// Start date contract of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string StartDate { get; set; }
+        public System.DateTimeOffset? StartDate { get; set; }
 
         /// <summary>
-        /// Zip of the worker
+        /// End date contract of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string EndDate { get; set; }
+        public System.DateTimeOffset? EndDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -9683,13 +12088,13 @@ namespace web_app.ApiClient
         /// State of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string StartDate { get; set; }
+        public System.DateTimeOffset? StartDate { get; set; }
 
         /// <summary>
         /// Zip of the worker
         /// </summary>
         [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string EndDate { get; set; }
+        public System.DateTimeOffset? EndDate { get; set; }
 
         /// <summary>
         /// Created at of the worker
@@ -9715,55 +12120,82 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class WorkerPaginationResponse
+    {
+        /// <summary>
+        /// Data of the worker
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<WorkerResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<WorkerResponse>();
+
+        /// <summary>
+        /// Total of the worker
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateWorkerRequest
     {
         /// <summary>
         /// Name of the worker
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// Speciality of the worker
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("speciality", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("speciality", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Speciality { get; set; }
 
         /// <summary>
         /// Contact of the worker
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("contact", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("contact", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Contact { get; set; }
 
         /// <summary>
         /// Email of the worker
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Address { get; set; }
 
         /// <summary>
         /// Phone of the worker
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Phone { get; set; }
 
         /// <summary>
         /// City of the worker
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("socialSecurity", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("socialSecurity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SocialSecurity { get; set; }
 
         /// <summary>
         /// State of the worker
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string StartDate { get; set; }
+        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? StartDate { get; set; }
 
         /// <summary>
         /// Zip of the worker
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string EndDate { get; set; }
+        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? EndDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -9860,24 +12292,51 @@ namespace web_app.ApiClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class WorkerAssignmentPaginationResponse
+    {
+        /// <summary>
+        /// Data of the workerAssignment
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<WorkerAssignmentResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<WorkerAssignmentResponse>();
+
+        /// <summary>
+        /// Total of the workerAssignment
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UpdateWorkerAssignmentRequest
     {
         /// <summary>
         /// Name of the workerAssignment
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("workerId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("workerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WorkerId { get; set; }
 
         /// <summary>
         /// Project ID of the workerAssignment
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("projectId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("projectId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProjectId { get; set; }
 
         /// <summary>
         /// Stage ID of the workerAssignment
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("stageId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("stageId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StageId { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -9910,19 +12369,19 @@ namespace web_app.ApiClient
         /// Contact of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("totalPayment", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string TotalPayment { get; set; }
+        public double? TotalPayment { get; set; }
 
         /// <summary>
         /// Email of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("paymentDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string PaymentDate { get; set; }
+        public System.DateTimeOffset? PaymentDate { get; set; }
 
         /// <summary>
         /// Is extra of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isExtra", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string IsExtra { get; set; }
+        public bool? IsExtra { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -9961,31 +12420,58 @@ namespace web_app.ApiClient
         /// Contact of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("totalPayment", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string TotalPayment { get; set; }
+        public double? TotalPayment { get; set; }
 
         /// <summary>
         /// Email of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("paymentDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string PaymentDate { get; set; }
+        public System.DateTimeOffset? PaymentDate { get; set; }
 
         /// <summary>
         /// Is extra of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isExtra", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string IsExtra { get; set; }
+        public bool? IsExtra { get; set; }
 
         /// <summary>
         /// Created at of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string CreatedAt { get; set; }
+        public System.DateTimeOffset? CreatedAt { get; set; }
 
         /// <summary>
         /// Updated at of the workerPayments
         /// </summary>
         [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string UpdatedAt { get; set; }
+        public System.DateTimeOffset? UpdatedAt { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class WorkerPaymentsPaginationResponse
+    {
+        /// <summary>
+        /// Data of the workerPayments
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<WorkerPaymentsResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<WorkerPaymentsResponse>();
+
+        /// <summary>
+        /// Total of the workerPayments
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -10004,32 +12490,32 @@ namespace web_app.ApiClient
         /// <summary>
         /// Name of the workerPayments
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("workerId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("workerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WorkerId { get; set; }
 
         /// <summary>
         /// Speciality of the workerPayments
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("serviceSheetId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("serviceSheetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceSheetId { get; set; }
 
         /// <summary>
         /// Contact of the workerPayments
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("totalPayment", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string TotalPayment { get; set; }
+        [Newtonsoft.Json.JsonProperty("totalPayment", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? TotalPayment { get; set; }
 
         /// <summary>
         /// Email of the workerPayments
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("paymentDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string PaymentDate { get; set; }
+        [Newtonsoft.Json.JsonProperty("paymentDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? PaymentDate { get; set; }
 
         /// <summary>
         /// Is extra of the workerPayments
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("isExtra", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string IsExtra { get; set; }
+        [Newtonsoft.Json.JsonProperty("isExtra", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsExtra { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -10061,7 +12547,7 @@ namespace web_app.ApiClient
         /// Effective date of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("effectiveDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string EffectiveDate { get; set; }
+        public System.DateTimeOffset? EffectiveDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -10100,19 +12586,46 @@ namespace web_app.ApiClient
         /// Effective date of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("effectiveDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string EffectiveDate { get; set; }
+        public System.DateTimeOffset? EffectiveDate { get; set; }
 
         /// <summary>
         /// Created at of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string CreatedAt { get; set; }
+        public System.DateTimeOffset? CreatedAt { get; set; }
 
         /// <summary>
         /// Updated at of the workerRates
         /// </summary>
         [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string UpdatedAt { get; set; }
+        public System.DateTimeOffset? UpdatedAt { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class WorkerRatesPaginationResponse
+    {
+        /// <summary>
+        /// Data of the workerRates
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<WorkerRatesResponse> Data { get; set; } = new System.Collections.ObjectModel.Collection<WorkerRatesResponse>();
+
+        /// <summary>
+        /// Total of the workerRates
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public double Total { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -10131,20 +12644,20 @@ namespace web_app.ApiClient
         /// <summary>
         /// Name of the workerRates
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("workerId", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("workerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WorkerId { get; set; }
 
         /// <summary>
         /// Rate of the workerRates
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("rate", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("rate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Rate { get; set; }
 
         /// <summary>
         /// Effective date of the workerRates
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("effectiveDate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string EffectiveDate { get; set; }
+        [Newtonsoft.Json.JsonProperty("effectiveDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? EffectiveDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -10154,6 +12667,60 @@ namespace web_app.ApiClient
             get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
             set { _additionalProperties = value; }
         }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum CreateUserRequestStatus
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"active")]
+        Active = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"inactive")]
+        Inactive = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"pending")]
+        Pending = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"blocked")]
+        Blocked = 3,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum UserResponseStatus
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"active")]
+        Active = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"inactive")]
+        Inactive = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"pending")]
+        Pending = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"blocked")]
+        Blocked = 3,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum UpdateUserRequestStatus
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"active")]
+        Active = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"inactive")]
+        Inactive = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"pending")]
+        Pending = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"blocked")]
+        Blocked = 3,
 
     }
 

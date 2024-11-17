@@ -3,12 +3,39 @@
 
 <web_app.Components.Layout.ContentPage Title="Trabajadores" HiddenAddButton="false" AddButtonAction="AddWorker">
 
-    <MudDataGrid Items="Workers" Filterable="true" FilterMode="DataGridFilterMode.Simple" FilterCaseSensitivity="@DataGridFilterCaseSensitivity.CaseInsensitive">
+    <MudDataGrid T="WorkerResponse" @ref="dataGrid" Loading="@_loading" FixedHeader="true" ServerData="ServerReload" Filterable="false">
+        <ToolBarContent>
+            <MudSpacer />
+            <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder="Buscar" Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
         <Columns>
-            <PropertyColumn Property="x => x.Name" Title="Name" Filterable="false" />
+            <PropertyColumn Property="x => x.Name" Title="Nombre" Filterable="false" />
+            <PropertyColumn Property="x => x.Speciality" Title="Especialidad" Filterable="false" />
+            <PropertyColumn Property="x => x.SocialSecurity" Title="Seguro social" Filterable="false" Sortable="false" />
+            <PropertyColumn Property="@(x => ChangeDateFormat(x.StartDate))" Title="Inicio del contrato" Filterable="false" Sortable="false" />
+            <PropertyColumn Property="@(x => ChangeDateFormat(x.EndDate))" Title="Fin del contrato" Filterable="false" Sortable="false" />
+            <TemplateColumn Title="Actions" Context="data" Filterable="false" Sortable="false">
+                <CellTemplate>
+                    <MudGrid Spacing="1" Justify="Justify.FlexEnd">
+                        <MudItem sm="6" md="6" lg="6">
+                            <MudIconButton Title="Editar" Size="@Size.Small" Icon="@Icons.Material.Outlined.Edit" Class="pa-0" Color="Color.Info" OnClick="@((args) => EditWorker(data.Item.Id))" />
+                        </MudItem>
+                        <MudItem sm="6" md="6" lg="6">
+                            <MudIconButton Title="Eliminar" Size="@Size.Small" Icon="@Icons.Material.Outlined.Delete" Color="Color.Error" Class="pa-0" OnClick="@((args) => RemoveWorker(data.Item.Id))" />
+                        </MudItem>
+                    </MudGrid>
+                </CellTemplate>
+            </TemplateColumn>
         </Columns>
+        <NoRecordsContent>
+            <MudText>no se encontraron registros</MudText>
+        </NoRecordsContent>
         <PagerContent>
-            <MudDataGridPager T="WorkerResponse"/>
+            <MudDataGridPager T="WorkerResponse" />
         </PagerContent>
     </MudDataGrid>
 </web_app.Components.Layout.ContentPage>
+<MudOverlay Visible="Visible" DarkBackground="true" Absolute="true">
+    <MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+</MudOverlay>

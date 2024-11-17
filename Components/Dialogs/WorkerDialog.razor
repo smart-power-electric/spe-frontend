@@ -1,37 +1,51 @@
-﻿<MudDialog>
+﻿@using web_app.Components.Shared;
+
+<MudDialog>
     <DialogContent>
-        <MudForm ValidationDelay="0">
+        <MudForm Model="@Model" @ref="@form" Validation="@(workerValidator.ValidateValue)" ValidationDelay="0">
             <MudGrid Spacing="2">
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudTextField T="string" Immediate="true"
+                    <MudTextField @bind-Value="Model.Name"
+                                  For="@( () => Model.Name)"
+                                  Immediate="true"
                                   Variant="Variant.Outlined"
                                   Label="Full Name" />
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudTextField T="string" Immediate="true"
+                    <MudTextField For="@( () => Model.Phone)"
+                                  Immediate="true"
                                   Variant="Variant.Outlined"
-                                  Label="Teléfono" />
+                                  Label="Teléfono"
+                                  @bind-Value="Model.Phone" />
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudTextField T="string" Immediate="true"
+                    <MudTextField For="@( () => Model.SocialSecurity)"
+                                  Immediate="true"
                                   Variant="Variant.Outlined"
-                                  Label="Seguro social" />
+                                  Label="Seguro social"
+                                  @bind-Value="Model.SocialSecurity" />
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudTextField T="string" Immediate="true"
+                    <MudTextField For="@( () => Model.Speciality)"
+                                  Immediate="true"
                                   Variant="Variant.Outlined"
-                                  Label="Seguro social" />
+                                  Label="Especialidad"
+                                  @bind-Value="Model.Speciality" />
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudDatePicker Variant="Variant.Outlined"
-                                   Label="Inicio del contrato" />
+                    <MudDatePickerOffset @bind-Value="Model.StartDate"
+                                         Variant="Variant.Outlined"
+                                         NewLabel="Inicio del contrato" />
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudDatePicker Variant="Variant.Outlined"
-                                   Label="Fin del contrato" />
+                    <MudDatePickerOffset @bind-Value="Model.EndDate"
+                                         Variant="Variant.Outlined"
+                                         NewLabel="Fin del contrato" />
                 </MudItem>
                 <MudItem xs="12" sm="12" xl="12">
-                    <MudTextField T="string" Lines=5 Immediate="true"
+                    <MudTextField For="@(() => Model.Address)"
+                                  T="string" Lines=5 Immediate="true"
+                                  @bind-Value="Model.Address"
                                   Variant="Variant.Outlined"
                                   Label="Dirección" />
                 </MudItem>
@@ -39,7 +53,7 @@
         </MudForm>
     </DialogContent>
     <DialogActions>
-        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Aceptar</MudButton>
+        <MudButton OnClick="Cancel">Cancelar</MudButton>
     </DialogActions>
 </MudDialog>
