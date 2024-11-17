@@ -3,8 +3,6 @@ using MudBlazor;
 using web_app.ApiClient;
 using web_app.Components.Dialogs;
 using web_app.Components.Shared;
-using static MudBlazor.CategoryTypes;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace web_app.Components.Pages;
 

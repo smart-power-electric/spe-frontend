@@ -1,21 +1,62 @@
 ﻿<MudDialog>
     <DialogContent>
-        <MudForm ValidationDelay="0">
+        <MudForm Model="@Model" @ref="@form" Validation="@(clientValidator.ValidateValue)" ValidationDelay="0">
             <MudGrid Spacing="2">
                 <MudItem xs="12" sm="6" xl="6">
-                    <MudTextField T="string" Immediate="true"
+                    <MudTextField Immediate="true"
+                                  For="@( () => Model.Name)"
+                                  @bind-Value="Model.Name"
                                   Variant="Variant.Outlined"
                                   Label="Full Name" />
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="6">
-                    <MudTextField T="string" Immediate="true"
+                    <MudTextField Immediate="true"
+                                  For="@( () => Model.Email)"
+                                  @bind-Value="Model.Email"
                                   Variant="Variant.Outlined"
-                                  Label="Especialidad" />
+                                  Label="Correo" />
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudTextField Immediate="true"
+                                  For="@( () => Model.Phone)"
+                                  @bind-Value="Model.Phone"
+                                  Variant="Variant.Outlined"
+                                  Label="Teléfono" />
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudTextField Immediate="true"
+                                  For="@( () => Model.Contact)"
+                                  @bind-Value="Model.Contact"
+                                  Variant="Variant.Outlined"
+                                  Label="Cóntacto" />
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudTextField Immediate="true"
+                                  For="@( () => Model.State)"
+                                  @bind-Value="Model.State"
+                                  Variant="Variant.Outlined"
+                                  Label="Estado" />
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudTextField Immediate="true"
+                                  For="@( () => Model.City)"
+                                  @bind-Value="Model.City"
+                                  Variant="Variant.Outlined"
+                                  Label="Ciudad" />
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudTextField Immediate="true"
+                                  For="@( () => Model.Zip)"
+                                  @bind-Value="Model.Zip"
+                                  Variant="Variant.Outlined"
+                                  Label="Código postal" />
                 </MudItem>
                 <MudItem xs="12" sm="12" xl="12">
-                    <MudTextField T="string" Lines=5 Immediate="true"
+                    <MudTextField Lines=5 Immediate="true"
+                                  For="@(() => Model.Address)"
+                                  @bind-Value="Model.Address"
                                   Variant="Variant.Outlined"
-                                  Label="Adress" />
+                                  Label="Dirección" />
                 </MudItem>
             </MudGrid>
         </MudForm>

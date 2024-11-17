@@ -1,13 +1,39 @@
 @page "/client"
+@using web_app.ApiClient
 
 <web_app.Components.Layout.ContentPage Title="Clientes" HiddenAddButton="false" AddButtonAction="AddClient">
 
-    <MudDataGrid T="string" Filterable="true" FilterMode="DataGridFilterMode.Simple" FilterCaseSensitivity="@DataGridFilterCaseSensitivity.CaseInsensitive">
+    <MudDataGrid T="ClientResponse" @ref="dataGrid" FixedHeader="true" ServerData="ServerReload" Filterable="false">
+        <ToolBarContent>
+            <MudSpacer />
+            <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder="Buscar" Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
         <Columns>
-            @* <PropertyColumn Title="Nr" Filterable="false" /> *@
+            <PropertyColumn Property="x => x.Name" Title="Nombre" Filterable="false" />
+            <PropertyColumn Property="x => x.Email" Title="Correo" Filterable="false" Sortable="false" />
+            <PropertyColumn Property="x => x.State" Title="Estado" Filterable="false" Sortable="false" />
+            <TemplateColumn Title="Actions" Context="data" Filterable="false" Sortable="false">
+                <CellTemplate>
+                    <MudGrid Spacing="1" Justify="Justify.FlexEnd">
+                        <MudItem sm="6" md="6" lg="6">
+                            <MudIconButton Title="Editar" Size="@Size.Small" Icon="@Icons.Material.Outlined.Edit" Class="pa-0" Color="Color.Info" OnClick="@((args) => EditClient(data.Item.Id))" />
+                        </MudItem>
+                        <MudItem sm="6" md="6" lg="6">
+                            <MudIconButton Title="Eliminar" Size="@Size.Small" Icon="@Icons.Material.Outlined.Delete" Color="Color.Error" Class="pa-0" OnClick="@((args) => RemoveClient(data.Item.Id))" />
+                        </MudItem>
+                    </MudGrid>
+                </CellTemplate>
+            </TemplateColumn>
         </Columns>
+        <NoRecordsContent>
+            <MudText>No se encontraron registros</MudText>
+        </NoRecordsContent>
         <PagerContent>
-            <MudDataGridPager />
+            <MudDataGridPager T="ClientResponse" />
         </PagerContent>
     </MudDataGrid>
 </web_app.Components.Layout.ContentPage>
+<MudOverlay Visible="Visible" DarkBackground="true" Absolute="true">
+    <MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+</MudOverlay>
