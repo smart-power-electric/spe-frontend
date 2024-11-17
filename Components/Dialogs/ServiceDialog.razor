@@ -1,16 +1,27 @@
 ﻿<MudDialog>
     <DialogContent>
-        <MudForm ValidationDelay="0">
+        <MudForm Model="@Model" @ref="@form" Validation="@(serviceValidator.ValidateValue)" ValidationDelay="0">
             <MudGrid Spacing="2">
                 <MudItem xs="12" sm="6" xl="6">
-                    <MudTextField T="string" Immediate="true"
+                    <MudTextField Immediate="true"
+                                  For="@( () => Model.Name)"
+                                  @bind-Value="Model.Name"
                                   Variant="Variant.Outlined"
                                   Label="Name" />
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="6">
-                    <MudNumericField HideSpinButtons="true" T="string"
+                    <MudNumericField HideSpinButtons="true"
+                                     For="@( () => Model.UnitCost)"
+                                     @bind-Value="Model.UnitCost"
+                                     Variant="Variant.Outlined"
+                                     Label="Precio" />
+                </MudItem>
+                <MudItem xs="12" sm="12" xl="12">
+                    <MudTextField For="@(() => Model.Description)"
+                                  Lines=5 Immediate="true"
+                                  @bind-Value="Model.Description"
                                   Variant="Variant.Outlined"
-                                  Label="Costo" />
+                                  Label="Descripción" />
                 </MudItem>
             </MudGrid>
         </MudForm>
