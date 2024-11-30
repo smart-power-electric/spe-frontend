@@ -1,13 +1,43 @@
-@page "/project"
+@page "/projects"
+@using web_app.ApiClient
 
-<web_app.Components.Layout.ContentPage Title="Clientes" HiddenAddButton="false" AddButtonAction="AddClient">
+<web_app.Components.Layout.ContentPage Title="Proyectos" HiddenAddButton="false" AddButtonAction="AddProject">
 
-    <MudDataGrid T="string" Filterable="true" FilterMode="DataGridFilterMode.Simple" FilterCaseSensitivity="@DataGridFilterCaseSensitivity.CaseInsensitive">
+    <MudDataGrid T="ProjectResponse" @ref="dataGrid" Loading="@_loading" FixedHeader="true" ServerData="ServerReload" Filterable="false">
+        <ToolBarContent>
+            <MudSpacer />
+            <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder="Buscar" Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
         <Columns>
-            @* <PropertyColumn Title="Nr" Filterable="false" /> *@
+            <PropertyColumn Property="x => x.Name" Title="Nombre" Filterable="false" />
+            <PropertyColumn Property="x => x.Location" Title="Localización" Filterable="false" />
+            <PropertyColumn Property="@(x => x.StartDate.HasValue ? x.StartDate.Value.ToString("MM/dd/yyyy") : "")" Title="Inicio del contrato" Filterable="false" Sortable="true" />
+            <PropertyColumn Property="@(x => x.EndDate.HasValue ? x.EndDate.Value.ToString("MM/dd/yyyy") : "")" Title="Fin del contrato" Filterable="false" Sortable="true" />
+            <TemplateColumn Title="Actions" Context="data" Filterable="false" Sortable="false">
+                <CellTemplate>
+                    <MudGrid Spacing="1" Justify="Justify.FlexEnd">
+                        <MudItem sm="4" md="4" lg="4">
+                            <MudIconButton Title="Editar" Size="@Size.Small" Icon="@Icons.Material.Outlined.Edit" Class="pa-0" Color="Color.Info" OnClick="@((args) => EditProject(data.Item.Id))" />
+                        </MudItem>
+                        <MudItem sm="4" md="4" lg="4">
+                            <MudIconButton Title="Eliminar" Size="@Size.Small" Icon="@Icons.Material.Outlined.Delete" Color="Color.Error" Class="pa-0" OnClick="@((args) => RemoveProject(data.Item.Id))" />
+                        </MudItem>
+                        <MudItem sm="4" md="4" lg="4">
+                            <MudIconButton Title="Crear cotización" Size="@Size.Small" Icon="@Icons.Material.Outlined.RequestQuote" Color="Color.Surface" Class="pa-0" OnClick="@((args) => CreateQuotation(data.Item.Id))" />
+                        </MudItem>
+                    </MudGrid>
+                </CellTemplate>
+            </TemplateColumn>
         </Columns>
+        <NoRecordsContent>
+            <MudText>No se encontraron registros</MudText>
+        </NoRecordsContent>
         <PagerContent>
-            <MudDataGridPager />
+            <MudDataGridPager T="ProjectResponse" />
         </PagerContent>
     </MudDataGrid>
 </web_app.Components.Layout.ContentPage>
+<MudOverlay Visible="Visible" DarkBackground="true" Absolute="true">
+    <MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+</MudOverlay>

@@ -8,9 +8,7 @@ namespace web_app.Components.Pages;
 
 public partial class ServicePage : ComponentBase
 {
-
-    [Inject]
-    private ISnackbar Snackbar { get; set; } = null!;
+    [Inject] private ISnackbar Snackbar { get; set; } = null!;
     [Inject] IDialogService DialogService { get; set; } = null!;
 
     [Inject] IApiClient Client { get; set; } = null!;
@@ -22,7 +20,7 @@ public partial class ServicePage : ComponentBase
 
     private async Task AddService()
     {
-        ServiceResponse service= new();
+        ServiceResponse service = new();
         var parameters = new DialogParameters<ServiceDialog> { { x => x.Model, service } };
 
         var dialog = await DialogService.ShowAsync<ServiceDialog>("Crear servicio", parameters);
@@ -31,8 +29,10 @@ public partial class ServicePage : ComponentBase
         {
             Snackbar.Add($"Servicio creado satisfactoriamente", Severity.Success);
         }
+
         _ = dataGrid.ReloadServerData();
     }
+
     private async Task EditService(string serviceId)
     {
         try
@@ -65,6 +65,7 @@ public partial class ServicePage : ComponentBase
             Visible = false;
         }
     }
+
     private async Task RemoveService(string workerId)
     {
         var options = new DialogOptions
@@ -86,6 +87,7 @@ public partial class ServicePage : ComponentBase
             {
                 Snackbar.Add($"Oops! An error occurred. The error type is: {ex.Message}.", Severity.Error);
             }
+
             _ = dataGrid.ReloadServerData();
         }
     }
@@ -101,15 +103,20 @@ public partial class ServicePage : ComponentBase
         _cts = new CancellationTokenSource();
         try
         {
-            var result = await Client.FindAllServiceAsync(state.PageSize, state.PageSize * state.Page, searchString, _cts.Token);
+            var sortDefinition = state.SortDefinitions.FirstOrDefault();
+            var sortField = SortField6.Name;
+            var sortOrder =
+                SortOrder6.ASC;
+            if (sortDefinition != null)
+            {
+                sortOrder = sortDefinition.Descending ? SortOrder6.DESC : SortOrder6.ASC;
+            }
+
+            var result = await Client.FindAllServiceAsync(state.PageSize, state.PageSize * state.Page, sortOrder,
+                searchString, sortField, _cts.Token);
             var totalItems = (int)result.Total;
             IEnumerable<ServiceResponse> data = result.Data;
 
-            var sortDefinition = state.SortDefinitions.FirstOrDefault();
-            if (sortDefinition != null)
-            {
-                data = OrderBy(state, data);
-            }
             return new GridData<ServiceResponse>
             {
                 TotalItems = totalItems,
@@ -132,9 +139,9 @@ public partial class ServicePage : ComponentBase
 
         if (sortDefinition!.SortBy == nameof(ServiceResponse.Name))
             data = data.OrderByDirection(
-                    sortDefinition.Descending ? SortDirection.Descending : SortDirection.Ascending,
-                    o => o.Name
-                );
+                sortDefinition.Descending ? SortDirection.Descending : SortDirection.Ascending,
+                o => o.Name
+            );
 
         return data;
     }
@@ -144,5 +151,6 @@ public partial class ServicePage : ComponentBase
         searchString = text;
         return dataGrid.ReloadServerData();
     }
+
     #endregion
 }

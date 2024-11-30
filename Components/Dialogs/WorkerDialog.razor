@@ -1,4 +1,5 @@
-﻿@using web_app.Components.Shared;
+﻿@using web_app.ApiClient
+@using web_app.Components.Shared;
 
 <MudDialog>
     <DialogContent>
@@ -6,50 +7,60 @@
             <MudGrid Spacing="2">
                 <MudItem xs="12" sm="6" xl="4">
                     <MudTextField @bind-Value="Model.Name"
-                                  For="@( () => Model.Name)"
+                                  For="@(() => Model.Name)"
                                   Immediate="true"
                                   Variant="Variant.Outlined"
-                                  Label="Full Name" />
+                                  Label="Full Name"/>
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudTextField For="@( () => Model.Phone)"
+                    <MudTextField For="@(() => Model.Phone)"
                                   Immediate="true"
                                   Variant="Variant.Outlined"
                                   Label="Teléfono"
-                                  @bind-Value="Model.Phone" />
+                                  @bind-Value="Model.Phone"/>
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudTextField For="@( () => Model.SocialSecurity)"
+                    <MudTextField For="@(() => Model.SocialSecurity)"
                                   Immediate="true"
                                   Variant="Variant.Outlined"
                                   Label="Seguro social"
-                                  @bind-Value="Model.SocialSecurity" />
+                                  @bind-Value="Model.SocialSecurity"/>
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
-                    <MudTextField For="@( () => Model.Speciality)"
+                    <MudTextField For="@(() => Model.Speciality)"
                                   Immediate="true"
                                   Variant="Variant.Outlined"
                                   Label="Especialidad"
-                                  @bind-Value="Model.Speciality" />
+                                  @bind-Value="Model.Speciality"/>
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
                     <MudDatePicker @bind-Date="Model.StartDate"
-                                         For="@( () => Model.StartDate)"
-                                         Variant="Variant.Outlined"
-                                         Label="Inicio del contrato" />
+                                   For="@(() => Model.StartDate)"
+                                   Variant="Variant.Outlined"
+                                   Label="Inicio del contrato"/>
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="4">
                     <MudDatePicker @bind-Date="Model.EndDate"
-                                         For="@( () => Model.EndDate)"
-                                         Variant="Variant.Outlined"
-                                         Label="Fin del contrato" />
+                                   For="@(() => Model.EndDate)"
+                                   Variant="Variant.Outlined"
+                                   Label="Fin del contrato"/>
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="4">
+                    <MudSelect @bind-Value=WorkerRate Label="Tárifa" Variant="Variant.Outlined">
+                        @foreach (var rate in WorkerRates)
+                        {
+                            <MudSelectItem Value="rate">
+                                @rate.Rate USD/Hora
+                            </MudSelectItem>
+                        }
+                    </MudSelect>
                 </MudItem>
                 <MudItem xs="12" sm="12" xl="12">
                     <MudTextField For="@(() => Model.Address)"
                                   T="string" Lines=5 Immediate="true"
                                   @bind-Value="Model.Address"
                                   Variant="Variant.Outlined"
-                                  Label="Dirección" />
+                                  Label="Dirección"/>
                 </MudItem>
             </MudGrid>
         </MudForm>

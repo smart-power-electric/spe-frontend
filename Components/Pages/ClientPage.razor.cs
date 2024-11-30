@@ -101,7 +101,16 @@ public partial class ClientPage : ComponentBase
         _cts = new CancellationTokenSource();
         try
         {
-            var result = await Client.FindAllClientAsync(state.PageSize, state.PageSize * state.Page, searchString, "", _cts.Token);
+            var sortDefinition = state.SortDefinitions.FirstOrDefault();
+            var sortField = SortField.Name;
+            var sortOrder =
+                SortOrder.ASC; 
+            if (sortDefinition != null)
+            {
+                sortOrder = sortDefinition.Descending ? SortOrder.DESC : SortOrder.ASC;
+            }
+            
+            var result = await Client.FindAllClientAsync(state.PageSize, state.PageSize * state.Page, searchString, "", sortOrder, sortField, _cts.Token);
             if(result == null)
             {
                 return new GridData<ClientResponse>
@@ -112,12 +121,7 @@ public partial class ClientPage : ComponentBase
             }
             var totalItems = (int)result.Total;
             IEnumerable<ClientResponse> data = result.Data;
-
-            var sortDefinition = state.SortDefinitions.FirstOrDefault();
-            if (sortDefinition != null)
-            {
-                data = OrderBy(state, data);
-            }
+            
             return new GridData<ClientResponse>
             {
                 TotalItems = totalItems,

@@ -1,21 +1,50 @@
-﻿<MudDialog>
+﻿@using web_app.ApiClient
+@using web_app.Components.Shared
+<MudDialog>
     <DialogContent>
-        <MudForm ValidationDelay="0">
+        <MudForm Model="@Model" @ref="@form" Validation="@(projectValidator.ValidateValue)" ValidationDelay="0">
             <MudGrid Spacing="2">
                 <MudItem xs="12" sm="6" xl="6">
-                    <MudTextField T="string" Immediate="true"
+                    <MudTextField Immediate="true"
+                                  For="@(() => Model.Name)"
+                                  @bind-Value="Model.Name"
                                   Variant="Variant.Outlined"
-                                  Label="Full Name" />
+                                  Label="Name"/>
                 </MudItem>
                 <MudItem xs="12" sm="6" xl="6">
-                    <MudTextField T="string" Immediate="true"
+                    <MudDatePicker For="@(() => Model.StartDate)"
+                                   @bind-Date="Model.StartDate"
+                                   Variant="Variant.Outlined"
+                                   Label="Fecha de inicio"/>
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudDatePicker For="@(() => Model.EndDate)"
+                                   @bind-Date="Model.EndDate"
+                                   Variant="Variant.Outlined"
+                                   Label="Fecha de fin"/>
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="4">
+                    <MudAutocomplete T="ClientResponse" Label="Client" DebounceInterval="1000"
+                                     @bind-Value="SelectedClient"
+                                     SearchFunc="@Search" ToStringFunc="@ToStringFunc"
+                                     Variant="Variant.Outlined" ShowProgressIndicator="true"/>
+                </MudItem>
+                <MudItem xs="12" sm="6" xl="6">
+                    <MudTextField Immediate="true"
+                                  For="@(() => Model.Location)"
+                                  @bind-Value="Model.Location"
                                   Variant="Variant.Outlined"
-                                  Label="Contacto" />
+                                  Label="Localización"/>
                 </MudItem>
                 <MudItem xs="12" sm="12" xl="12">
-                    <MudTextField T="string" Lines=5 Immediate="true"
+                    <MudTextField For="@(() => Model.Description)"
+                                  Lines=5 Immediate="true"
+                                  @bind-Value="Model.Description"
                                   Variant="Variant.Outlined"
-                                  Label="Adress" />
+                                  Label="Descripción"/>
+                </MudItem>
+                <MudItem xs="12" sm="12" xl="12">
+                    <StageComponent ProjectId="@Model.Id" OnItemsChanged="OnChangedStages"/>
                 </MudItem>
             </MudGrid>
         </MudForm>

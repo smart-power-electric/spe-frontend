@@ -1,1 +1,76 @@
-﻿
+@using System.Runtime.Intrinsics.X86
+@using web_app.ApiClient
+<MudDataGrid T="StageResponse" Virtualize="true" Items="Stages" Loading="@Loading" FixedHeader="true"
+             Filterable="false" ReadOnly="false"
+             EditMode="@DataGridEditMode.Cell"
+             CommittedItemChanges="@CommittedItemChanges"
+             >
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Etapas</MudText>
+        <MudSpacer/>
+        <MudButton Color="Color.Primary" OnClick="AddNewStage">Crear Etapa</MudButton>
+    </ToolBarContent>
+    <Columns>
+        <HierarchyColumn T="StageResponse"/>
+        <PropertyColumn Property="x => x.Name" Title="Nombre" Filterable="false" Sortable="false"/>
+        <PropertyColumn Property="x => x.Description" Title="Descripción" Filterable="false"
+                        Sortable="false"/>
+        <PropertyColumn Property="x => x.StartDate" Title="Fecha de inicio" Filterable="false"
+                        Sortable="false">
+            <EditTemplate>
+                <MudDatePicker @bind-Date="context.Item.StartDate"/>
+            </EditTemplate>
+        </PropertyColumn>
+        <PropertyColumn Property="x => x.EndDate" Title="Fecha de fin" Filterable="false"
+                        Sortable="false">
+            <EditTemplate>
+                <MudDatePicker @bind-Date="context.Item.EndDate"/>
+            </EditTemplate>
+        </PropertyColumn>
+        <PropertyColumn Property="x => x.Percentage" Title="Porcentaje" Filterable="false"
+                        Sortable="false"/>
+    </Columns>
+    <ChildRowContent>
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@context.Item.Name</MudText>
+                    <MudSpacer/>
+                    @{
+                        var value = StageProgress(context.Item.StartDate, context.Item.EndDate);
+                    }
+                    <MudProgressLinear Color="@StageProgressColor(value)" Rounded="true" Size="Size.Large"
+                                       Value="@value" Indeterminate="false">
+                        <MudText Typo="Typo.subtitle1" Color="Color.Dark">
+                            <b>@value%</b>
+                        </MudText>
+                    </MudProgressLinear>
+
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudGrid Justify="Justify.SpaceBetween">
+                    <MudItem sm="12" md="4" lg="4">
+                        <MudText>Descripción: @context.Item.Description</MudText>
+                        <MudText>Fecha de inicio: @context.Item.StartDate.ToString()</MudText>
+                        <MudText>Fecha de fin: @context.Item.EndDate.ToString()</MudText>
+                    </MudItem>
+                </MudGrid>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Error" OnClick="@(() => RemoveStage(context.Item))">
+                    Eliminar
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    </ChildRowContent>
+    <RowLoadingContent>
+        <MudProgressLinear IsIndeterminate="true"/>
+    </RowLoadingContent>
+    <NoRecordsContent>
+        <MudText>No se encontraron registros</MudText>
+    </NoRecordsContent>
+    <PagerContent>
+        <MudDataGridPager T="StageResponse"/>
+    </PagerContent>
+</MudDataGrid>

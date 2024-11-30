@@ -66,4 +66,30 @@ public partial class WorkerDialog : ComponentBase
     }
 
     void Cancel() => MudDialog.Cancel();
+
+    #region WorkerRateRegion
+    
+    public WorkerRatesResponse WorkerRate { get; set; } = null!;
+    public ICollection<WorkerRatesResponse> WorkerRates { get; set; } = new List<WorkerRatesResponse>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await GetWorkerRates();
+    }
+    private async Task GetWorkerRates()
+    {
+        try
+        {
+            var result = await Client.FindAllWorkerRatesAsync(999, 0, null);
+            if(result != null)
+                WorkerRates = result.Data;
+            else
+                Snackbar!.Add($"Oops, there was an error getting the worker rates.", Severity.Error);
+        }
+        catch (Exception ex)
+        {
+            Snackbar!.Add($"Oops, an error occurred. The error type is: {ex.Message}.", Severity.Error);
+        }
+    }
+    #endregion
 }

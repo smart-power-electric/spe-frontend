@@ -8,9 +8,7 @@ namespace web_app.Components.Pages;
 
 public partial class WorkerPage
 {
-
-    [Inject]
-    private ISnackbar Snackbar { get; set; } = null!;
+    [Inject] private ISnackbar Snackbar { get; set; } = null!;
     [Inject] IDialogService DialogService { get; set; } = null!;
 
     [Inject] IApiClient Client { get; set; } = null!;
@@ -32,6 +30,7 @@ public partial class WorkerPage
         {
             Snackbar.Add($"Trabajador creado satisfactoriamente", Severity.Success);
         }
+
         _ = dataGrid.ReloadServerData();
     }
 
@@ -67,6 +66,7 @@ public partial class WorkerPage
             Visible = false;
         }
     }
+
     private async Task RemoveWorker(string workerId)
     {
         var options = new DialogOptions
@@ -88,6 +88,7 @@ public partial class WorkerPage
             {
                 Snackbar.Add($"Oops! An error occurred. The error type is: {ex.Message}.", Severity.Error);
             }
+
             _ = dataGrid.ReloadServerData();
         }
     }
@@ -103,15 +104,28 @@ public partial class WorkerPage
         _cts = new CancellationTokenSource();
         try
         {
-            var result = await Client.FindAllWorkerAsync(state.PageSize, state.PageSize * state.Page, searchString, _cts.Token);
+            var sortDefinition = state.SortDefinitions.FirstOrDefault();
+            var sortField = SortField8.Name; // sortDefinition?.SortBy;
+            var sortOrder =
+                SortOrder8.ASC; // sortDefinition.Descending ? SortDirection.Descending : SortDirection.Ascending;
+            if (sortDefinition != null)
+            {
+                sortOrder = sortDefinition.Descending ? SortOrder8.DESC : SortOrder8.ASC;
+                sortField = sortDefinition.SortBy switch
+                {
+                    nameof(WorkerResponse.Name) => SortField8.Name,
+                    nameof(WorkerResponse.StartDate) => SortField8.StartDate,
+                    nameof(WorkerResponse.EndDate) => SortField8.EndDate,
+                    nameof(WorkerResponse.Speciality) => SortField8.Speciality,
+                    _ => SortField8.Name
+                };
+            }
+
+            var result = await Client.FindAllWorkerAsync(state.PageSize, state.PageSize * state.Page, searchString,
+                sortOrder, sortField, _cts.Token);
             var totalItems = (int)result.Total;
             IEnumerable<WorkerResponse> data = result.Data;
 
-            var sortDefinition = state.SortDefinitions.FirstOrDefault();
-            if (sortDefinition != null)
-            {
-                data = OrderBy(state, data);
-            }
             return new GridData<WorkerResponse>
             {
                 TotalItems = totalItems,
@@ -127,47 +141,15 @@ public partial class WorkerPage
             };
         }
     }
-
-    private IEnumerable<WorkerResponse> OrderBy(GridState<WorkerResponse> state, IEnumerable<WorkerResponse> data)
-    {
-        var sortDefinition = state.SortDefinitions.FirstOrDefault();
-        switch (sortDefinition!.SortBy)
-        {
-            case nameof(WorkerResponse.Name):
-                data = data.OrderByDirection(
-                    sortDefinition.Descending ? SortDirection.Descending : SortDirection.Ascending,
-                    o => o.Name
-                );
-                break;
-            case nameof(WorkerResponse.StartDate):
-                data = data.OrderByDirection(
-                    sortDefinition.Descending ? SortDirection.Descending : SortDirection.Ascending,
-                    o => o.StartDate
-                );
-                break;
-            case nameof(WorkerResponse.EndDate):
-                data = data.OrderByDirection(
-                    sortDefinition.Descending ? SortDirection.Descending : SortDirection.Ascending,
-                    o => o.EndDate
-                );
-                break;
-            case nameof(WorkerResponse.Speciality):
-                data = data.OrderByDirection(
-                    sortDefinition.Descending ? SortDirection.Descending : SortDirection.Ascending,
-                    o => o.Speciality
-                );
-                break;
-        }
-
-        return data;
-    }
-
+    
     private Task OnSearch(string text)
     {
         searchString = text;
         return dataGrid.ReloadServerData();
     }
 
-    private string ChangeDateFormat(DateTime? value) => DateTime.TryParse(value.ToString(), out var date) ? date.ToString("MM/dd/yyyy") : "";
+    private string ChangeDateFormat(DateTime? value) =>
+        DateTime.TryParse(value.ToString(), out var date) ? date.ToString("MM/dd/yyyy") : "";
+
     #endregion
 }
