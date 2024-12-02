@@ -1,6 +1,6 @@
 @using System.Runtime.Intrinsics.X86
 @using web_app.ApiClient
-<MudDataGrid T="StageResponse" Virtualize="true" Items="Stages" Loading="@Loading" FixedHeader="true"
+<MudDataGrid T="StageResponse" Virtualize="false" Items="Stages" Loading="@Loading" FixedHeader="true"
              Filterable="false" ReadOnly="false"
              EditMode="@DataGridEditMode.Cell"
              CommittedItemChanges="@CommittedItemChanges"

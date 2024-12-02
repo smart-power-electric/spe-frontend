@@ -15,13 +15,13 @@ public partial class StageComponent : ComponentBase
 
     private bool Loading = false;
     private ObservableCollection<StageResponse> Stages { get; set; } = new();
-    private CancellationTokenSource _cts = null!;
+    private CancellationTokenSource _cts = new();
 
-    protected override async Task OnParametersSetAsync()
+    protected override async Task OnInitializedAsync()
     {
         try
         {
-            _cts?.Cancel();
+            await _cts.CancelAsync();
             _cts = new CancellationTokenSource();
 
             if (ProjectId != null && Stages.Count == 0)
@@ -78,13 +78,8 @@ public partial class StageComponent : ComponentBase
         };
     }
 
-    void CommittedItemChanges(StageResponse item)
+    async Task CommittedItemChanges(StageResponse item)
     {
-        if (item is
-            {
-                Name: not null or not "", StartDate: not null, EndDate: not null, Description: not null or not "", ProjectId: not null,
-                Percentage: not null
-            })
-            Snackbar.Add($"Item committed: {item.Name}", Severity.Info);
+        await OnItemsChanged.InvokeAsync(Stages.ToList());
     }
 }

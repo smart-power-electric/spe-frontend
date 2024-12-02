@@ -9,14 +9,14 @@ namespace web_app.Components.Dialogs;
 public partial class ProjectDialog : ComponentBase
 {
     [Inject] private ISnackbar Snackbar { get; set; } = null!;
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = null!;
+    [CascadingParameter] private MudDialogInstance MudDialog { get; set; } = null!;
     [Parameter] public ProjectResponse Model { get; set; } = null!;
     [Inject] IApiClient Client { get; set; } = null!;
     private IEnumerable<StageResponse> Stages { get; set; } = [];
 
     private ProjectValidator projectValidator = new();
     private MudForm? form;
-    private CancellationTokenSource _cts = null!;
+    private CancellationTokenSource _cts = new();
 
     async Task Submit()
     {
@@ -25,7 +25,7 @@ public partial class ProjectDialog : ComponentBase
 
         _cts?.Cancel();
         _cts = new CancellationTokenSource();
-        
+
         ProjectResponse result;
         try
         {
@@ -41,7 +41,7 @@ public partial class ProjectDialog : ComponentBase
                     Location = Model.Location,
                 };
                 result = await Client.CreateProjectAsync(request, _cts.Token);
-                
+
                 if (result != null)
                 {
                     var stages = Stages.Select(s => new CreateStageRequest
@@ -52,7 +52,7 @@ public partial class ProjectDialog : ComponentBase
                         EndDate = s.EndDate,
                         ProjectId = result.Id,
                     }).ToList();
-                    await Task.WhenAll( 
+                    await Task.WhenAll(
                         stages.Select(s => Client.CreateStageAsync(s, _cts.Token))
                     );
                 }
@@ -68,21 +68,40 @@ public partial class ProjectDialog : ComponentBase
                     ClientId = Model.ClientId,
                     Location = Model.Location,
                 };
-                result = await Client.UpdateProjectAsync(Model.Id, request);
+
+                var resultTask = Client.UpdateProjectAsync(Model.Id, request);
+                await Task.WhenAll(
+                    resultTask,
+                    UpdateStages()
+                );
+                result = resultTask.Result;
             }
 
             if (result != null)
-                MudDialog!.Close(DialogResult.Ok(true));
+                MudDialog.Close(DialogResult.Ok(true));
             else
-                Snackbar!.Add($"Oops, there was an error adding a new project.", Severity.Error);
+                Snackbar.Add($"Oops, there was an error adding a new project.", Severity.Error);
         }
         catch (Exception ex)
         {
-            Snackbar!.Add($"Oops, an error occurred. The error type is: {ex.Message}.", Severity.Error);
+            Snackbar.Add($"Oops, an error occurred. The error type is: {ex.Message}.", Severity.Error);
         }
     }
 
     void Cancel() => MudDialog.Cancel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await _cts.CancelAsync();
+        _cts = new CancellationTokenSource();
+        
+        if (Model.ClientId != null)
+        {
+            var client = await Client.FindOneClientAsync(Model.ClientId, _cts.Token);
+            ClientList = new List<ClientResponse> { client };
+        }
+
+    }
 
     private async Task<IEnumerable<ClientResponse>> Search(string value, CancellationToken token)
     {
@@ -101,9 +120,26 @@ public partial class ProjectDialog : ComponentBase
 
     string ToStringFunc(ClientResponse? client) =>
         client != null ? client.Name : SelectedClient != null ? SelectedClient.Name : string.Empty;
-    
+
     private void OnChangedStages(List<StageResponse> items)
     {
         Stages = items;
+    }
+
+    private Task UpdateStages()
+    {
+        var stages = Stages.Select(s => new UpsertStageRequest()
+        {
+            Id = s.Id,
+            Name = s.Name,
+            Description = s.Description,
+            StartDate = s.StartDate,
+            EndDate = s.EndDate,
+            ProjectId = Model.Id,
+            Percentage = s.Percentage,
+            AdjustedPercentage = 0,
+        }).ToList();
+
+        return Client.UpdateBulkStageAsync(Model.Id, stages, _cts.Token);
     }
 }

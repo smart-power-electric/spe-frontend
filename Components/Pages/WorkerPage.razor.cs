@@ -13,7 +13,7 @@ public partial class WorkerPage
 
     [Inject] IApiClient Client { get; set; } = null!;
 
-    public bool _loading = false;
+    private bool _loading = false;
     private IEnumerable<WorkerResponse>? Workers;
 
     private MudDataGrid<WorkerResponse> dataGrid { get; set; } = null!;
@@ -26,7 +26,7 @@ public partial class WorkerPage
 
         var dialog = await DialogService.ShowAsync<WorkerDialog>("Crear trabajador", parameters);
         var result = await dialog.Result;
-        if (!result.Canceled && (bool)result.Data)
+        if (result is {Canceled: false, Data: not null })
         {
             Snackbar.Add($"Trabajador creado satisfactoriamente", Severity.Success);
         }
@@ -46,7 +46,7 @@ public partial class WorkerPage
 
                 var dialog = await DialogService.ShowAsync<WorkerDialog>("Editar trabajador", parameters);
                 var result = await dialog.Result;
-                if (!result.Canceled && (bool)result.Data)
+                if (result is {Canceled: false, Data: not null })
                 {
                     Snackbar.Add($"Trabajador actualizado satisfactoriamente", Severity.Success);
                     _ = dataGrid.ReloadServerData();
@@ -77,7 +77,7 @@ public partial class WorkerPage
         };
         var dialog = await DialogService.ShowAsync<DeleteDialog>("Eliminar trabajador", options);
         var result = await dialog.Result;
-        if (!result.Canceled && (bool)result.Data)
+        if (result is {Canceled: false, Data: not null })
         {
             try
             {
@@ -96,7 +96,7 @@ public partial class WorkerPage
     #region Utils (load datagrid, dateformat, overlay etc...)
 
     public bool Visible = false;
-    private CancellationTokenSource _cts;
+    private CancellationTokenSource? _cts;
 
     private async Task<GridData<WorkerResponse>> ServerReload(GridState<WorkerResponse> state)
     {
@@ -148,7 +148,7 @@ public partial class WorkerPage
         return dataGrid.ReloadServerData();
     }
 
-    private string ChangeDateFormat(DateTime? value) =>
+    private static string ChangeDateFormat(DateTime? value) =>
         DateTime.TryParse(value.ToString(), out var date) ? date.ToString("MM/dd/yyyy") : "";
 
     #endregion

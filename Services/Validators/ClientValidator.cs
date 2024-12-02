@@ -22,6 +22,11 @@ namespace web_app.Services.Validators
             RuleFor(x => x.Email)
                 .EmailAddress().WithMessage("El correo electrónico no es válido.")
                 .Length(5, 100).WithMessage("El correo electrónico debe contener entre 3 y 100 caracteres");
+            
+            RuleFor(x => x.Contact)
+                .NotEmpty().WithMessage("El contacto es requerido.")
+                .NotNull().WithMessage("El contacto es requerido.")
+                .Length(1, 20).WithMessage("El contacto debe contener entre 1 y 20 caracteres");
 
         }
 
