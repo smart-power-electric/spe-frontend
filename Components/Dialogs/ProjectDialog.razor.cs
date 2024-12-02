@@ -94,13 +94,12 @@ public partial class ProjectDialog : ComponentBase
     {
         await _cts.CancelAsync();
         _cts = new CancellationTokenSource();
-        
+
         if (Model.ClientId != null)
         {
             var client = await Client.FindOneClientAsync(Model.ClientId, _cts.Token);
             ClientList = new List<ClientResponse> { client };
         }
-
     }
 
     private async Task<IEnumerable<ClientResponse>> Search(string value, CancellationToken token)
@@ -128,6 +127,7 @@ public partial class ProjectDialog : ComponentBase
 
     private Task UpdateStages()
     {
+        if (!Stages.Any()) return Task.CompletedTask;
         var stages = Stages.Select(s => new UpsertStageRequest()
         {
             Id = s.Id,
